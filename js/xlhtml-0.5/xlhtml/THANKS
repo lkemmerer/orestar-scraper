@@ -1,0 +1,12 @@
+
+	Arturo Tena for the cole 2.0 library
+	Caolan McNamara for MSWordView...where I got the nsopen & nsxlview scripts
+	David Nicol for the Uploader Perl script
+	Bradley Marshall for converting the nsxlview & nsopen scripts to bash
+	Glen Stewart for rounding up the convertXLS scripts
+	Hironori Sakamoto for several BIG unicode patches
+	Gary Johnson for the excel2text mutt script
+	David Brukman for xlhtml patch
+	Jason Venner for the XML patch
+	Asher Blum for the xlv script
+

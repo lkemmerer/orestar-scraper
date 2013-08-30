@@ -1,0 +1,29 @@
+#!/bin/csh
+
+if ($#argv != 1) then
+    echo "Usage: $0 file.doc"
+    exit 1
+endif
+
+set source = $argv[1]
+
+#Generate a unique html filename (/tmp/scriptname.pidnum.html)
+#set com = $0
+#set tmp = /tmp/$com:t.$$
+#set html = $tmp.html
+
+set tmp = `mktemp -q /tmp/nspptview.XXXXXX` || exit 1
+set tmp2 = `mktemp -q $tmp/nspptview.XXXXXX` || exit 1
+set html = $tmp2.html
+ 
+ppthtml $source > $html
+if ((!(-r $html)) | ($status)) then
+    echo "$0"": failed to generate HTML file"
+    exit 1
+endif
+
+#File exists and is of length > 0, so open it
+nsopen $html
+rm -rf $tmp*
+
+exit 0

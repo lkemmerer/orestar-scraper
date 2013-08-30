@@ -1,0 +1,163 @@
+/*
+   cole - A free C OLE library.
+   Copyright 1998, 1999  Roberto Arturo Tena Sanchez
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
+/*
+   Arturo Tena <arturo@directmail.org>
+ */
+
+
+Pre-hacking:
+************
+
+If you want to play, you'll need:
+	+ An ANSI C system (libraries and C compiler).
+	+ GNU m4, GNU automake-1.4, GNU autoconf 2.13 and GNU libtool 1.3.2
+	  if you want to change `configure.in' or some `Makefile.am'.
+	+ DocBook 3.x tools and gtk-doc
+          (from GNOME CVS (http://cvs.gnome.org/)) if you want to make
+	  a distribution.
+
+
+Tests:
+******
+
+If you write a new public call, write their documentation: see comments before the implementation of other public calls, and write a test and put in in `examples' directory.
+
+
+API:
+****
+
+The API 2.x must be modelled after `stdio.h' ANSI C calls, but cleanner. This
+means the arguments must be the minimal that the call _really_ needs.
+
+The last argument of most of calls must be `COLERRNO *colerrno'. This must be set if an error is found when calling some other call or a system call, but colerrno can be NULL, so always use `if (colerrno != NULL) *colerrno = COLE_...'.
+
+All the public calls neet to have a `COLERRNO *colerrno' argument, except those that simply can not fail.
+
+If you create a new error code, insert it in the list of the colerrno argument in the document comment above the function with the new error code, insert in enum _COLERRNO, add a comment there, add an entry in cole_perror and review all the sources that call the function that have the new error code in order to catch the new error (inclusive utils and examples directories).
+
+When writting a call that calls another calls which returns colerrno, say in documentation something like: ` * @colerrno: error value (COLE_AAA, errors from calls cole_XXX(), cole_XXY() and COLE_XXZ())' if the call that you are writting calls cole_XXX, cole_XXY and COLE_XXZ and returns COLE_AAA by itself.
+
+
+Implementation:
+***************
+
+When you write the code to check the return value from a function with switch, always write a default case (in the most cases the default case will return a COLE_UNKNOWN). If you use if's, write an else case.
+
+
+Documentation:
+**************
+
+If you modified `cole-manual.sgml', you must run `make html' in the `doc'
+subdirectory.
+
+If you modified the templates, you must run `make sgml' and then `make html'
+in the `doc' subdirectory.
+
+If you modified `cole-sections.txt'... well, I guess you must run
+`make templates' and then `make sgml' and then `make html' in the `doc'
+subdirectory (but I'm not sure because I'm lerning this gtk-doc thing).
+
+If you changed the existing comment of a function, structure, etc, you must
+run `make sgml' and then `make html' in the `doc' subdirectory.
+
+If you changed the parameters of some function, run `make templates' and then
+`make sgml' and then `make html'.
+
+If you added, renamed or deleted some function, well you tell me what to do.
+
+All targets in the `Makefile' in the `doc' subdirectory modifies sources, that
+way the documentation can be updated when checked in CVS.
+
+Before you regenerate documentation, must have a build directory with all the
+code compiled, because `cole.h' file is needed.
+
+
+FlashPix file format:
+*********************
+
+Seems to me that "Root Entry" pps number is zero (like MS files), but it has
+no name! I mean, pps_list[0].type == 5, but pps_list[0].name[0] == 0.
+
+
+
+
+
+
+
+
+
+**********************
+* OLD HACKING DOCUMENT
+**********************
+
+
+Hacking:
+********
+
+Ok, next few lines are for people trying to understand the cole code.
+
+to code a OLE2 file (which is done by OLEcode) is done it two fases:
+process and generate.
+
+process insert all the information in the Structure, and generate reads
+this Structure and write the actual output_file (wich is an ole2 file) by
+copying real files and some parts of Structure to output_file.
+
+in the generate stage we know the actual blocks where each stream is
+stored, so in this stage this start block is written in Root.
+
+functions of process stage starts with process_* and add_*.
+functions of generating stage starts with generate_* and write_*.
+
+the size property of `Root Entry' pps is the actual size of sbfile, and
+always is a multiple of 0x40.
+
+A graph of Structure following:
+
+[missing, remember me I must do it]
+
+size of Input (Input.size) is never used, it's no necessary. In any case,
+what info we should write there? Same case as Input.blocks.
+
+somewhere in process stage, name of real files are copied by reference,
+that means two vars will point to the same memory posittion. one var is
+in pps_entry * stream_list names, and the other is in sbfile and Input in
+Structure. But it's ok.
+
+notes:
+a ole2 file can or not contain small streams. if there are, it will
+have SDepot, although in Structure always SDepot exist,
+SDepot->size == sbfile->size == 0 if file do not contain small streams
+
+it seems to me a ole2 file could not have big streams, just small streams. BUT it will at least one block that is taken by BDepot, because in BDepot store block chains for SDepot and Root
+
+It seems that Solaris doesn't like directories as targets... must be a file.
+This is a problem in doc/Makefile.
+
+about the code:
+it's spaguetticode. I know. Long var names. I know. Help me to fix it.
+comments are generally after the line it comments, as explanation of what
+i have done.
+
+advices:
+when doing a change, verify the program works with files with SDepot and
+files with out SDepot (files with or without small streams)
+
+if you change the version number, change it both in configure.in file and in doc/cole-manual.sgml.
+

@@ -1,0 +1,59 @@
+<!ELEMENT B ( #PCDATA | I | U | SUB | SUP | S )* >
+
+<!ELEMENT I ( #PCDATA | B | U | SUB | SUP | S )* >
+
+<!ELEMENT U ( #PCDATA | B | I | SUB | SUP | S )* >
+<!ELEMENT S ( #PCDATA | B | I | SUB | SUP | U )* >
+<!ELEMENT SUP ( #PCDATA | B | I | SUB | S | U )* >
+<!ELEMENT SUB ( #PCDATA | B | I | S | SUP | U )* >
+
+<!ELEMENT author ( #PCDATA ) >
+
+<!ELEMENT cell ( #PCDATA | U | B | I | SUB | SUP | S | Unsupported | NotImplemented | NotAccurate | NoFormat  )* >
+<!ATTLIST cell col NMTOKEN #REQUIRED >
+<!ATTLIST cell row NMTOKEN #REQUIRED >
+<!ATTLIST cell colspan NMTOKEN >
+<!ATTLIST cell rowspan NMTOKEN >
+
+<!ELEMENT Unsupported #EMPTY >
+<!ELEMENT NotImplemented #EMPTY >
+<!ELEMENT NotAccurate #EMPTY >
+<!ELEMENT NoFormat #EMPTY >
+
+<!ELEMENT excel_workbook ( sheets, author, excelversion, tool, toollink ) >
+
+<!ELEMENT excelversion ( #PCDATA ) >
+
+<!ELEMENT accuracy ( #PCDATA ) >
+<!ELEMENT notimplemented ( #PCDATA ) >
+<!ELEMENT notsupported ( #PCDATA ) >
+<!ELEMENT MaxWorksheetsExceeded ( #PCDATA ) >
+<!ELEMENT MaxRowExceeded ( #PCDATA ) >
+<!ELEMENT MaxColExceeded ( #PCDATA ) >
+<!ELEMENT MaxPalExceeded ( #PCDATA ) >
+<!ELEMENT MaxFEExceeded ( #PCDATA ) >
+<!ELEMENT MaxFormatsExceeded ( #PCDATA ) >
+
+<!ELEMENT firstcol ( #PCDATA ) >
+
+<!ELEMENT firstrow ( #PCDATA ) >
+
+<!ELEMENT lastcol ( #PCDATA ) >
+
+<!ELEMENT lastrow ( #PCDATA ) >
+
+<!ELEMENT page ( #PCDATA ) >
+
+<!ELEMENT pagetitle ( #PCDATA ) >
+
+<!ELEMENT row ( cell+ ) >
+
+<!ELEMENT rows ( row+ ) >
+
+<!ELEMENT sheet ( page, pagetitle, firstrow, lastrow, firstcol, lastcol, rows ) >
+
+<!ELEMENT sheets ( sheet ) >
+
+<!ELEMENT tool ( #PCDATA ) >
+
+<!ELEMENT toollink ( #PCDATA ) >

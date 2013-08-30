@@ -1,0 +1,75 @@
+.\"Created with GNOME Manpages Editor Wizard
+.\"http://gmanedit.sourceforge.net
+.\"Sergio Rua <srua@gpul.org>
+.\"
+.TH xlhtml 1 "October 13, 2001" "xlhtml"
+
+.SH NAME
+xlhtml \- A program for converting Microsoft Excel Files .xls
+
+.SH SYNOPSIS
+.B xlhtml
+.RI [ -nc ] [ -a ] [ -fw ] [ -bcNNNNNN ] [ -tcNNNNNN ] [ -bi/path ] [ -c ] [ -te ] [ -v ] [ -m ] [ -asc ] [ -dp ] [ -xp:N ] [ -xc:N ] [ -xr:N ] [ -xml ] [ -csv ]
+.br
+
+.SH DESCRIPTION
+This manual page explains the
+.B xlhtml
+program. The program
+.B xlhtml
+is used to convert Microsoft Excel Spreadsheet files into either html or tab delimitted ASCII. The program can be interfaced with helper scripts for viewing email attachments. Most use of this program is through the helper scripts and one would probably rarely resort to using the commandline interface.
+
+.SH OPTIONS
+.B
+.IP -nc
+tells it not to colorize the output.
+.IP -a
+aggressively optimize html by removing </TR> </TD> or VALIGN="bottom" Some older browsers may not display properly in this mode.
+.IP -fw
+suppress formula warnings about accuracy
+.IP -bc
+Override the background color. e.g. -bg808080     for gray
+.IP -tc
+Override the text color. e.g. -tcFF0000     for red
+.IP -bi
+Use background image. e.g. -bi/home/httpd/icon/tar.gif
+.IP -c
+Centers the tables horizontally
+.IP -te
+Trims empty rows & columns at the edges of a worksheet
+.IP -v
+Prints program version
+.IP -m
+No encoding for multibyte
+.IP -asc
+Ascii out of -dp and extraction data (-x?)
+.IP -dp
+Dump page count and max columns and rows per page
+.IP -xp
+Page for extraction (zero based)
+.IP -xc
+Columns (separated by a dash) for extraction (zero based)
+.IP -xr
+Rows (separated by a dash) to be extracted (zero based)
+.IP -xml
+Output in XML
+.IP -csv
+Output in Comma Separated Values
+.IP -nh
+Suppress header and body tags in html output
+
+An example of the extraction command line is:
+xlhtml -fw -asc -xp:0 -xr:2-6 -xc:0-1 Test.xls
+
+The extraction output is: 
+Formatted output of cells by column left to right, columns separated by a tab, end of row is: 0x0A, end of file: \n\n
+
+.SH NOTES
+To interface to Netscape Navigator: first locate the help scripts nsxlview & nsopen. Go into the Edit Preferences dialog box. Click on the Navigator Category and hilight the Applications menu item. Look for Microsoft Excel Worksheet. If you don't see it create one. The MIME type should be:  application/vnd.ms-excel  The suffixes should be: xls,xlt,xlm,xld,xla,xlc,xlw,xll  In the handled by section of the dialog box, check the Application checkbox and set the path to wherever the nsxlview helper script is located and pass a %s argument. For example, if nsxlview is located in /usr/local/bin, then you would put: 
+
+/usr/local/bin/nsxlview %s  
+
+in the Application path box.. (As a side note, make sure the nsxlview script can find the xlhtml program or it won't work.)  Click on the OK and you are done. You should be able to use the Test.xls file that is distributed with the program to verify its configured correctly.
+
+.SH AUTHOR
+Charles N Wyble

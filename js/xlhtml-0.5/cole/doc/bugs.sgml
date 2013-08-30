@@ -1,0 +1,39 @@
+
+<para>
+	cole developers have done their best effort to fix all the bugs of cole. But may be some of the are still hidden in the code. If you found one (or many!), please send a report to the maintainer (&maintainer-email-ulink;). When sending a report, please:
+</para>
+<orderedlist>
+	<listitem>
+		<para>
+			Describe with detail the behavior of cole and why you think it's a bug.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Configure cole using the argument <link linkend="how-to-compile">--enable-verbose</link> and send the output showing the bug.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Send the content of the variables <link linkend="cole-version">cole_version</link> and <link linkend="cole-host-info">cole_host_info</link> that the cole release you are using have. You wil have to write a little program to do this, but it will help much. =)
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			If you can, send the most small source code that shows the bug in action. May be you want to send the Structured Storage file you have been processing.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			You can send the files <filename>config.log</filename> and <filename>config.cache</filename> (which were created by <filename>configure</filename>) if you want.
+		</para>
+	</listitem>
+</orderedlist>
+<para>
+	Thank you very much.
+</para>
+<para>
+	Following is the <filename>BUGS</filename> file for this release.
+</para>
+<screen>&BUGS-File;</screen>
+

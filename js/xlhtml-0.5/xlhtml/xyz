@@ -1,0 +1,1331 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML Transitional//EN"
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML><HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="GENERATOR" content="xlhtml">
+<TITLE>Test</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF"><br>
+<H1><CENTER>General</CENTER></H1><br>
+<FONT FACE="Arial">
+<TABLE BORDER="1" CELLSPACING="2">
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD><B>Actual</B></TD>
+<TD><B>Answer</B></TD>
+<TD>&nbsp;</TD>
+<TD><B>Formula</B></TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1</TD>
+<TD>1</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">1</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD><I>** 2</I></TD>
+<TD><I>2</I></TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">A1+1</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>** 3</TD>
+<TD>3</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">A2+1</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>** 4</TD>
+<TD>4</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">A3+1</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>** 5</TD>
+<TD>5</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">A4+1</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>** 1</TD>
+<TD>1</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">A5-A4</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>** 6</TD>
+<TD>6</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">A5*A4</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>** 2</TD>
+<TD>2</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">A6/A4</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>Formula</TD>
+<TD>Formula</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">General!D2</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD><B>Common Functions</B></TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>** 15</TD>
+<TD>15</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">SUM</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>** 6</TD>
+<TD>6</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">MAX</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>** 1</TD>
+<TD>1</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">MIN</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>** 8</TD>
+<TD>8</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">COUNT </TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>** 3</TD>
+<TD>3</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">AVERAGE</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>TRUE</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD><B>Boolean</B></TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>FALSE</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD><B>Errors</B></TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>** #DIV/0!</TD>
+<TD>#DIV/0!</TD>
+<TD ALIGN="left">A1/0</TD>
+<TD ALIGN="left">Divide by 0</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>** #NAME?</TD>
+<TD>#NAME?</TD>
+<TD ALIGN="left">AVG(A3:A7)</TD>
+<TD ALIGN="left">Unknown Function</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>** #VALUE!</TD>
+<TD>#VALUE!</TD>
+<TD ALIGN="left">A5-A2</TD>
+<TD ALIGN="left">Bad Value</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>** #NULL!</TD>
+<TD>#NULL!</TD>
+<TD ALIGN="left">(SUM(A1:A10 C1:C10))</TD>
+<TD ALIGN="left">Bad Intersection</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>** #REF!</TD>
+<TD>#REF!</TD>
+<TD ALIGN="left">A3+A13</TD>
+<TD ALIGN="left">Bad Reference</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>** #N/A</TD>
+<TD>#N/A</TD>
+<TD ALIGN="left">VLOOKUP(0.1,range,2,TRUE)</TD>
+<TD ALIGN="left">Not Applicable</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>** #NUM!</TD>
+<TD>#NUM!</TD>
+<TD ALIGN="left">RATE(0, -200, 8000)</TD>
+<TD ALIGN="left">Problem with a Number</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD><B>Special Html Characters</B></TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&lt;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">Less Than</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&gt;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">Greater Than</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&amp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">Ampersand</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&quot;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">Quote</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&#8230;</TD>
+<TD>&nbsp;</TD>
+<TD>Elipse</TD>
+</TR>
+</table></FONT><HR>
+<H1><CENTER>Formats</CENTER></H1><br>
+<FONT FACE="Arial">
+<TABLE BORDER="1" CELLSPACING="2">
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1-1-00</TD>
+<TD>12-14-95</TD>
+<TD>2-28-00</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>12-30-00</TD>
+<TD>12-31-00</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">Unformatted Dates &amp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1</TD>
+<TD>35047</TD>
+<TD>36584</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>36890</TD>
+<TD>36891</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">their Julian number</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>9-24-99</TD>
+<TD>25-Sep-99</TD>
+<TD>4e+04 *</TD>
+<TD>Sep-99</TD>
+<TD>&nbsp;</TD>
+<TD>4e+04 *</TD>
+<TD>4e+04 *</TD>
+<TD>30-Sep</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">Dates</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>9:00 AM</TD>
+<TD>10:00:00 AM</TD>
+<TD>11:00</TD>
+<TD>12:00:00</TD>
+<TD>&nbsp;</TD>
+<TD>01:00</TD>
+<TD>1:02:00</TD>
+<TD>03:00.5</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">Time</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1</TD>
+<TD>1.2</TD>
+<TD>1.23</TD>
+<TD>1.234</TD>
+<TD>&nbsp;</TD>
+<TD>-1</TD>
+<TD>-1.2</TD>
+<TD>-1.23</TD>
+<TD>-1.234</TD>
+<TD ALIGN="left">General</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1.00</TD>
+<TD>1.20</TD>
+<TD>1.23</TD>
+<TD>1.23</TD>
+<TD>&nbsp;</TD>
+<TD>-1.00</TD>
+<TD>-1.20</TD>
+<TD>-1.23</TD>
+<TD>-1.23</TD>
+<TD ALIGN="left">Number</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1000000.00</TD>
+<TD>1000000.20</TD>
+<TD>1000000.23</TD>
+<TD>1000000.23</TD>
+<TD>&nbsp;</TD>
+<TD>-1000000.00</TD>
+<TD>-1000000.20</TD>
+<TD>-1000000.23</TD>
+<TD>-1000000.23</TD>
+<TD ALIGN="left">Number - Big Numbers</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1,000,000.00</TD>
+<TD>1,000,000.20</TD>
+<TD>1,000,000.23</TD>
+<TD>1,000,000.23</TD>
+<TD>&nbsp;</TD>
+<TD>-1,000,000.00</TD>
+<TD>-1,000,000.20</TD>
+<TD>-1,000,000.23</TD>
+<TD>-1,000,000.23</TD>
+<TD ALIGN="left">Number - Big Numbers with comma</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1 *</TD>
+<TD>1.2 *</TD>
+<TD>1.23 *</TD>
+<TD>1.234 *</TD>
+<TD>&nbsp;</TD>
+<TD>-1 *</TD>
+<TD>-1.2 *</TD>
+<TD>-1.23 *</TD>
+<TD>-1.234 *</TD>
+<TD ALIGN="left">Currency</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1e+04 *</TD>
+<TD>1e+04 *</TD>
+<TD>1e+04 *</TD>
+<TD>1e+04 *</TD>
+<TD>&nbsp;</TD>
+<TD>-1e+04 *</TD>
+<TD>-1e+04 *</TD>
+<TD>-1e+04 *</TD>
+<TD>-1e+04 *</TD>
+<TD ALIGN="left">Currency - Big Numbers</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1.00%</TD>
+<TD>1.20%</TD>
+<TD>1.23%</TD>
+<TD>1.23%</TD>
+<TD>&nbsp;</TD>
+<TD>-1.00%</TD>
+<TD>-1.20%</TD>
+<TD>-1.23%</TD>
+<TD>-1.23%</TD>
+<TD ALIGN="left">Percentage 2 decimals - small numbers</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>100.00%</TD>
+<TD>120.00%</TD>
+<TD>123.00%</TD>
+<TD>123.40%</TD>
+<TD>&nbsp;</TD>
+<TD>-100.00%</TD>
+<TD>-120.00%</TD>
+<TD>-123.00%</TD>
+<TD>-123.40%</TD>
+<TD ALIGN="left">Percentage 2 decimals - bigger numbers</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>100%</TD>
+<TD>120%</TD>
+<TD>123%</TD>
+<TD>123%</TD>
+<TD>&nbsp;</TD>
+<TD>-100%</TD>
+<TD>-120%</TD>
+<TD>-123%</TD>
+<TD>-123%</TD>
+<TD ALIGN="left">Percentage no decimals</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1.00E+00</TD>
+<TD>1.20E+00</TD>
+<TD>1.23E+00</TD>
+<TD>1.23E+00</TD>
+<TD>&nbsp;</TD>
+<TD>-1.00E+00</TD>
+<TD>-1.20E+00</TD>
+<TD>-1.23E+00</TD>
+<TD>-1.23E+00</TD>
+<TD ALIGN="left">Scientific</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>$ 1.00</TD>
+<TD>$ 1.20</TD>
+<TD>$ 1.23</TD>
+<TD>$ 1.23</TD>
+<TD>&nbsp;</TD>
+<TD>$ (1.00)</TD>
+<TD>$ (1.20)</TD>
+<TD>$ (1.23)</TD>
+<TD>$ (1.23)</TD>
+<TD ALIGN="left">Accounting</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>$ 10,000.00</TD>
+<TD>$ 10,000.20</TD>
+<TD>$ 10,000.23</TD>
+<TD>$ 10,000.23</TD>
+<TD>&nbsp;</TD>
+<TD>$ (10,000.00)</TD>
+<TD>$ (10,000.20)</TD>
+<TD>$ (10,000.23)</TD>
+<TD>$ (10,000.23)</TD>
+<TD ALIGN="left">Accounting - Big Numbers</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>1 </TD>
+<TD>1 1/5</TD>
+<TD>1 2/9</TD>
+<TD>1 2/9</TD>
+<TD>&nbsp;</TD>
+<TD>-1 </TD>
+<TD>-1 1/5</TD>
+<TD>-1 2/9</TD>
+<TD>-1 2/9</TD>
+<TD ALIGN="left">Fraction</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD COLSPAN="3">1.23456789012345e-21 *</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD COLSPAN="3">1234567890.12345 *</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="left">Max Precision Numbers</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="right" VALIGN="bottom">
+<TD>$ 12.34</TD>
+<TD>$ 123.40</TD>
+<TD>$ 1,234.00</TD>
+<TD>$ 12,340.00</TD>
+<TD>$ 123,400.00</TD>
+<TD>$ 1,234,000.00</TD>
+<TD>$ 12,340,000.00</TD>
+<TD>$ (123.40)</TD>
+<TD>$ (1,234.00)</TD>
+<TD ALIGN="left">Accounting</TD>
+</TR>
+</table></FONT><HR>
+<H1><CENTER>Text</CENTER></H1><br>
+<FONT FACE="Arial">
+<TABLE BORDER="1" CELLSPACING="2">
+<TR VALIGN="bottom">
+<TD><B>Bold</B></TD>
+<TD><I>Italics</I></TD>
+<TD><U>Underlined</U></TD>
+<TD>&nbsp;</TD>
+<TD>Modifier</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>Left</TD>
+<TD ALIGN="center">Centered</TD>
+<TD ALIGN="right">Right</TD>
+<TD>&nbsp;</TD>
+<TD>Justification</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT SIZE=4>Arial</FONT></TD>
+<TD><FONT FACE="Times New Roman" SIZE=4>Times New Roman</FONT></TD>
+<TD><FONT FACE="Courier New" SIZE=4>Courier New</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>Fonts 12 Pts</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT FACE="Comic Sans MS" SIZE=4>Comic Sans</FONT></TD>
+<TD><FONT FACE="Brush Script MT" SIZE=4>Brush Script</FONT></TD>
+<TD><FONT FACE="Verdana" SIZE=4>Verdana</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>Fonts 12 Pts</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD COLSPAN="3">Font Sizing</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT SIZE=2>8 Pts</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>10 Pts</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT SIZE=4>12 Pts</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT SIZE=4>14 Pts</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT SIZE=5>18 Pts</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT SIZE=6>24 Pts</FONT></TD>
+<TD>&nbsp;</TD>
+<TD VALIGN="top"><FONT COLOR="blue" SIZE=2><SUP>Superscript</SUP></FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT SIZE=7>36 Pts</FONT></TD>
+<TD>&nbsp;</TD>
+<TD><FONT COLOR="red" SIZE=2><SUB>Subscript</SUB></FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT SIZE=7>48 Pts</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>Regular <B>Bold</B> <I>Itallics</I> <U>Underlined</U></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+</table></FONT><HR>
+<H1><CENTER>Colors</CENTER></H1><br>
+<FONT FACE="Arial">
+<TABLE BORDER="1" CELLSPACING="2">
+<TR VALIGN="bottom">
+<TD>Cell 1</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BORDERCOLOR="red">&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD BGCOLOR="FF99CC"><FONT COLOR="993300">Cell 2</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="FFCC99"><FONT COLOR="333300">Cell 3</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="FFFF99"><FONT COLOR="003300">Cell 4</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="CCFFCC"><FONT COLOR="003366">Cell 5</FONT></TD>
+<TD>&nbsp;</TD>
+<TD BORDERCOLOR="blue">&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="CCFFFF"><FONT COLOR="navy">Cell 6</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="99CCFF"><FONT COLOR="333399">Cell 7</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BORDERCOLOR="green">&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD BGCOLOR="CC99FF"><FONT COLOR="333333">Cell 8</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD BGCOLOR="FF00FF"><FONT COLOR="800000">Cell 9</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD><FONT COLOR="FF6600">Cell 10</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="FFCC00"><FONT COLOR="808000">Cell 11</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="FFFF00"><FONT COLOR="green">Cell 12</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="lime"><FONT COLOR="teal">Cell 13</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT COLOR="red">Red <FONT COLOR="blue">Blue</FONT></FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="aqua"><FONT COLOR="blue">Cell 14</FONT></TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="00CCFF"><FONT COLOR="666699">Cell 15</FONT></TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="993366"><FONT COLOR="gray">Cell 16</FONT></TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="C0C0C0"><FONT COLOR="red">Cell 17</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="33CCCC"><FONT COLOR="FF9900">Cell 18</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="3366FF"><FONT COLOR="99CC00">Cell 19</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD BGCOLOR="800080"><FONT COLOR="339966">Cell 20</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD BGCOLOR="969696"><FONT COLOR="33CCCC">Cell 21</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD BGCOLOR="339966"><FONT COLOR="3366FF">Cell 22</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="99CC00"><FONT COLOR="800080">Cell 23</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="red"><FONT COLOR="969696">Cell 24</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="FF9900"><FONT COLOR="FF00FF">Cell 25</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="gray"><FONT COLOR="FFCC00">Cell 26</FONT></TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="666699"><FONT COLOR="FFFF00">Cell 27</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="blue"><FONT COLOR="lime">Cell 28</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="teal"><FONT COLOR="aqua">Cell 29</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD BGCOLOR="green"><FONT COLOR="00CCFF">Cell 30</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD BGCOLOR="808000"><FONT COLOR="993366">Cell 31</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD BGCOLOR="FF6600"><FONT COLOR="C0C0C0">Cell 32</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="800000"><FONT COLOR="FF99CC">Cell 33</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="333333"><FONT COLOR="FFCC99">Cell 34</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="navy"><FONT COLOR="FFFF99">Cell 35</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="003366"><FONT COLOR="CCFFCC">Cell 36</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="003300"><FONT COLOR="CCFFFF">Cell 37</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD BGCOLOR="333300"><FONT COLOR="99CCFF">Cell 38</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD BGCOLOR="993300"><FONT COLOR="CC99FF">Cell 39</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD><FONT COLOR="FFFFFF">Cell 40</FONT></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR ALIGN="center" VALIGN="bottom">
+<TD>&nbsp;</TD>
+<TD COLSPAN="3">Colors From Patterns Picker</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="9999FF">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="993366">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="FFFFCC">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="CCFFFF">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="660066">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="FF8080">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="0066CC">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="CCCCFF">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="000080">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="FF00FF">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="FFFF00">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="00FFFF">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="800080">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="800000">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="008080">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+<TR><TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD BGCOLOR="0000FF">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+</TR>
+</table></FONT><HR>
+<H1><CENTER>Hyperlinks</CENTER></H1><br>
+<FONT FACE="Arial" SIZE="2">
+<TABLE BORDER="1" CELLSPACING="2">
+<TR VALIGN="bottom">
+<TD><FONT COLOR="blue"><A href="\xlHtml-dev\xlHtml\dump.c">Link to  dump.c</A></FONT></TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT COLOR="blue"><A href="http://www.xlhtml.org/">www link</A></FONT></TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT COLOR="blue"><A href="ftp://ftp.xlhtml.org/">Ftp link</A></FONT></TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT COLOR="blue"><A href="mailto:no_spam@xlhtml.org">mailto link</A></FONT></TD>
+</TR>
+<TR VALIGN="bottom">
+<TD><FONT COLOR="blue"><A href="c:\autoexec.bat">file protocol</A></FONT></TD>
+</TR>
+</table></FONT><HR>
+<H1><CENTER>Bar Chart</CENTER></H1><br>
+<FONT FACE="Arial">
+<TABLE BORDER="1" CELLSPACING="2">
+<TR VALIGN="bottom">
+<TD>1</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>2</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>3</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>4</TD>
+</TR>
+<TR VALIGN="bottom">
+<TD>5</TD>
+</TR>
+</table></FONT><HR>
+<FONT SIZE=-1><I>Spreadsheet's Author:&nbsp;Steve Grubb</I></FONT><br>
+<FONT SIZE=-1><I>Last Updated 8/5/01&nbsp; with Excel 97</I></FONT><br>
+<br>* This cell's format is not supported.<br>
+<br>** This cell's data may not be accurate.<br>
+&nbsp;<br>
+<hr><FONT SIZE=-1>Created with <a href="http://chicago.sf.net/xlhtml">xlhtml 0.4.9.2</a></FONT><br>
+</BODY></HTML>

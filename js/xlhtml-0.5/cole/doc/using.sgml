@@ -1,0 +1,33 @@
+
+<para>
+	The files in the subdirectory <filename>examples</filename> in the source code show the complete public <link linkend="cole-API">API</link> in action. Briefly, if you know how to use the <filename>stdio.h</filename> ANSI C calls, cole API will be very easy for you.
+</para>
+<para>
+	If you use <filename>autoconf</filename> in your own proyect, the included file <filename>cole.m4</filename> may be useful for you. It contains the m4 macro AM_PATH_COLE that detect the presense or ausence of the cole library in the system being configured. To use it:
+</para>
+<orderedlist>
+	<listitem>
+		<para>
+			If cole is not installed in your system (i.e. <filename>aclocal</filename> can't find <filename>cole.m4</filename>), add the content of <filename>cole.m4</filename> to your own <filename>acinclude.m4</filename> file (create it in case you haven't one).
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Add a line like <userinput>AM_PATH_COLE(2.0.0, [LIBS="$LIBS $COLE_LIBS" CFLAGS="$CFLAGS $COLE_CFLAGS"])</userinput> to your <filename>configure.in</filename> file. Here we are requesting for cole release 2.0.0, and adding the necessary flags to LIBS and CFLAGS.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Run <userinput>aclocal</userinput> to generate the file <filename>aclocal.m4</filename>. This file will have many m4 macros, incluiding the cole m4 macro, and
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Run <userinput>autoconf</userinput> to generate the script <filename>configure</filename>.
+		</para>
+	</listitem>
+</orderedlist>
+<para>
+	Many <link linkend="cole-API">API</link> calls take an argument at the end called <link linkend="COLERRNO"><parameter>colerrno</parameter></link>. If it's not NULL and the call failed, it store the error code for fail, if any (if the call was successfully ended, its value is not modified).
+</para>
+

@@ -1,0 +1,48 @@
+
+<para>
+	The file <filename>INSTALL</filename> in the source code gives detailed instructions on how to configure, compile and install cole.
+</para>
+<para>
+	Briefly, you need to run the GNU standard <filename>configure</filename> script, with the arguments you want. To see the arguments that <filename>configure</filename> accepts, run <userinput>./configure --help</userinput>. The most usual argument is <userinput>--prefix=PREFIX</userinput>, which tells configure to install cole in the directory <userinput>PREFIX</userinput>. After that, you need to run <userinput>make</userinput> to compile cole, and <userinput>make install</userinput> to install it.
+</para>
+<para>
+	The <filename>configure</filename> script accepts, besides the standard arguments, the following flags:
+</para>
+<simplelist>
+	<member>
+		<userinput>--enable-osf-check</userinput>. Turn on short align for OSF compiler. If you have errors while compiling under OSF1, enable this flag.
+	</member>
+	<member>
+		<userinput>--enable-verbose</userinput>. Turn on verbose. It is useful if you want to send a bug report. It is useful for cole developers too.
+	</member>
+	<member>
+		<userinput>--enable-debug</userinput> Turn on GNU CC debug flags. It is useful for cole developers, so may be you don't want to use it.
+	</member>
+</simplelist>
+<para>
+	A tipical session is shown below.
+</para>
+<screen>
+<prompt>$</prompt> <userinput>ls</userinput>
+cole-2.0.0.tar.gz
+<prompt>$</prompt> <userinput>gzip -d cole-2.0.0.tar.gz</userinput>
+<prompt>$</prompt> <userinput>tar -xf cole-2.0.0.tar</userinput>
+<prompt>$</prompt> <userinput>ls</userinput>
+cole-2.0.0.tar      cole-2.0.0/
+<prompt>$</prompt> <userinput>cd cole-2.0.0</userinput>
+<prompt>$</prompt> <userinput>./configure --prefix=/opt</userinput>
+...
+Configured cole release 2.0.0 
+<prompt>$</prompt> <userinput>make</userinput>
+...
+<prompt>$</prompt> <userinput>make install</userinput>
+...
+<prompt>$</prompt> <userinput>make clean</userinput>
+...</screen>
+<para>
+	When installing, a shell script named <filename>cole-config</filename> will be installed in <filename>PREFIX/bin</filename> if you used the the <userinput>--prefix=PREFIX</userinput> argument, or in <filename>/usr/local/bin</filename> if you didn't. That directory must be listed in the content of the enviroment variable PATH when configuring another program that uses cole.
+</para>
+<para>
+	If you system support it, will be compiled and installed shared libraries, to minimize size of the executables. By this reason, is important to include the directory <filename>PREFIX/bin</filename> or <filename>/usr/local/bin</filename> (which appropiate) in the file that your system command <filename>ldconfig</filename> reads in order to regenerate the list of shared libraries (in some systems, you can list the directory in the content of the enviroment variable LD_LIBRARY_PATH instead).
+</para>
+

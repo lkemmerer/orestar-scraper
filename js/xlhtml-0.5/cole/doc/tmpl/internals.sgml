@@ -1,0 +1,284 @@
+<!-- ##### SECTION Title ##### -->
+Internals
+
+<!-- ##### SECTION Short_Description ##### -->
+cole internals - don't trust in anything here, because it may (and will) change.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+Contains calls to access directly the file system, and endianess care calls.
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT COLEFS ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT COLEDIRENT ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT COLEDIR ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT COLEFILE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO F32 ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO F64 ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO U8 ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO U16 ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO U32 ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION fil_sreadU16 ##### -->
+<para>
+
+</para>
+
+@in: 
+@Returns: 
+
+
+<!-- ##### FUNCTION fil_sreadU32 ##### -->
+<para>
+
+</para>
+
+@in: 
+@Returns: 
+
+
+<!-- ##### FUNCTION fil_sreadF64 ##### -->
+<para>
+
+</para>
+
+@in: 
+@Returns: 
+
+
+<!-- ##### FUNCTION fil_swriteU16 ##### -->
+<para>
+
+</para>
+
+@dest: 
+@src: 
+
+
+<!-- ##### FUNCTION fil_swriteU32 ##### -->
+<para>
+
+</para>
+
+@dest: 
+@src: 
+
+
+<!-- ##### MACRO verbose_return ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO test ##### -->
+<para>
+
+</para>
+
+@t: 
+@retval: 
+
+
+<!-- ##### MACRO test_exitf ##### -->
+<para>
+
+</para>
+
+@t: 
+@retval: 
+@func: 
+
+
+<!-- ##### MACRO test_call ##### -->
+<para>
+
+</para>
+
+@t: 
+@typeretval: 
+
+
+<!-- ##### MACRO test_call_exitf ##### -->
+<para>
+
+</para>
+
+@t: 
+@typeretval: 
+@func: 
+
+
+<!-- ##### MACRO report_bug ##### -->
+<para>
+
+</para>
+
+@prog: 
+
+
+<!-- ##### MACRO assert_return ##### -->
+<para>
+
+</para>
+
+@prog: 
+@t: 
+@retval: 
+
+
+<!-- ##### MACRO verbose_d ##### -->
+<para>
+
+</para>
+
+@n: 
+
+
+<!-- ##### MACRO verbose ##### -->
+<para>
+
+</para>
+
+@s: 
+
+
+<!-- ##### MACRO verbose_wonl ##### -->
+<para>
+
+</para>
+
+@s: 
+
+
+<!-- ##### MACRO verboseU8 ##### -->
+<para>
+
+</para>
+
+@expr: 
+
+
+<!-- ##### MACRO verboseU16 ##### -->
+<para>
+
+</para>
+
+@expr: 
+
+
+<!-- ##### MACRO verboseU32 ##### -->
+<para>
+
+</para>
+
+@expr: 
+
+
+<!-- ##### MACRO verboseS ##### -->
+<para>
+
+</para>
+
+@expr: 
+
+
+<!-- ##### MACRO verboseS_wonl ##### -->
+<para>
+
+</para>
+
+@expr: 
+
+
+<!-- ##### MACRO warning ##### -->
+<para>
+
+</para>
+
+@t: 
+
+
+<!-- ##### MACRO verboseU32Array ##### -->
+<para>
+
+</para>
+
+@array: 
+@len: 
+
+
+<!-- ##### MACRO verboseU8Array_force ##### -->
+<para>
+
+</para>
+
+@rec: 
+@len: 
+@reclen: 
+
+
+<!-- ##### MACRO verboseU8Array ##### -->
+<para>
+
+</para>
+
+@rec: 
+@len: 
+@reclen: 
+
+

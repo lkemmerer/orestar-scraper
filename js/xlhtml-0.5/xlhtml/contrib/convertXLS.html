@@ -1,0 +1,43 @@
+<html>
+<head><title>MS Excel Spreadsheet converter Web Gateway</title></head>
+<BODY BGCOLOR=tan>
+<center>
+<h1>An Excel Sheet converter Web Gateway</h1>
+</center>
+This is a web gateway converter for Excel Spreadsheet
+ documents to html.  This tool will convert any Microsoft Excel spreadsheet (XLS) file you
+send it, and then display the results in HTML format for you to read with your web
+browser. 
+<p>
+To use this tool, press the Browse button below, and select the MS Excel XLS document
+you want to convert.  Then Press the Upload File button to send it here for conversion.
+<p>
+   <FORM ENCTYPE="multipart/form-data" ACTION="cgi-bin/convertXLS.cgi" METHOD="POST">
+        <TABLE ALIGN=center BORDER=0 WIDTH="460">
+        <TR>
+            <TD ALIGN=RIGHT>
+                File:
+            </TD>
+            <TD>
+                <INPUT TYPE="FILE" NAME="file-to-upload-01"  SIZE="35">
+            </TD>
+        </TR>
+        <TR>
+            <TD COLSPAN=2>&nbsp;<BR></TD>
+        </TR>
+        <TR>
+            <TD>
+                <INPUT TYPE="SUBMIT" VALUE="Upload File!">
+            </TD>
+            <TD ALIGN=RIGHT>
+                <INPUT TYPE="RESET" VALUE="Reset Form">
+            </TD>
+        </TR>
+        </TABLE>
+        </FORM>
+
+<br>
+<hr>
+</body></html>
+
+

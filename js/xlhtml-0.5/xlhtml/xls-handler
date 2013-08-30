@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "Content-type: text/html"
+echo
+echo
+
+/usr/local/bin/xlhtml $PATH_TRANSLATED
+

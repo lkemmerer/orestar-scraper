@@ -1,0 +1,89 @@
+
+
+<sect1 id="what-is-cole">
+<title>What is cole?</title>
+<!-- NOTE: this section must have the same content of the `README' file -->
+<para>
+	cole is a free C OLE library.
+</para>
+<para>
+	cole is <link linkend="distribution-and-freedom">distributed</link> under the terms of the <link linkend="gpl-license">GNU General Public License</link> (GPL) to give an impulse to the Free Software. cole distribution license is compatible with the <ulink URL="http://www.opensource.org/">Open Source</ulink> definition.
+</para>
+<para>
+	Using cole, you can access Microsoft' Structured Storage files. The most popular Microsoft's programs generate Structured Storage files, incluiding the Microsoft' suite for offices. StarDivision' suite (StarOffice) generate Structured Storage files too. FlashPix file format is Structured Storage too.
+</para>
+<para>
+	What is a Structured Storage file? Inside a Structured Storage file there is a filesystem, with directories and files, which Microsoft calls containers and streams. Using cole you can travel through such filesystem and access the files.
+</para>
+<para>
+	cole doesn't know about internal structure of a stream, it only reads the raw data. You can use the Microsoft's documentation available at <ulink URL="http://msdn.microsoft.com/">http://msdn.microsoft.com</ulink> or the information available at <ulink URL="http://www.wotsit.org/">http://www.wotsit.org</ulink> to know the binary file format of the streams. If you know anything in the side of StarDivision email me. FlashPix file format is well documented.
+</para>
+<para>
+	cole was developed using the information available at <ulink URL="http://wwwwbs.cs.tu-berlin.de/~schwartz/pmh/guide.html">http://wwwwbs.cs.tu-berlin.de/~schwartz/pmh/guide.html</ulink> and the OLE::Storage Perl module from the same site, and no information from any other source (incluiding Microsoft) has been used.
+</para>
+</sect1>
+
+
+<sect1 id="features">
+<title>Features</title>
+<para>
+cole 2.x release series:
+</para>
+
+<itemizedlist>
+	<listitem>
+		<para>
+			Can open Structured Storage files generated with programs from Microsoft, StarDivision and FlashPix.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Is written in C, for better performance.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Should compile in UNIX-like systems with ANSI C libraries and a ANSI C compiler.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Has a new good-looking API, modelled after ANSI C <filename>stdio.h</filename> routines.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Uses standard automake, autoconf and libtool generated files.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Provides a standard <filename>configure</filename> script.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Builds shared (dynamic) libraries if the plattform and libtool support it.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Provides standard targets in the Makefile (ie. <userinput>install</userinput>, <userinput>clean</userinput>, etc).
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			Can use (thanks to the <filename>configure</filename> script) plattform dependent system calls for better performance.
+		</para>
+	</listitem>
+</itemizedlist>
+</sect1>
+
+
+<sect1 id="requirements-to-compile">
+<title>Requirements to compile</title>
+<para>
+	To have a system with ANSI C libraries, a ANSI C compiler, a <filename>make</filename> program and the shell <filename>/bin/sh</filename>.
+</para>
+</sect1>
+

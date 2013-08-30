@@ -1,0 +1,223 @@
+<HTML
+><HEAD
+><TITLE
+>Bugs</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.41"><LINK
+REL="HOME"
+TITLE="cole Library Reference Manual"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Internals"
+HREF="cole-internals.html"><LINK
+REL="NEXT"
+TITLE="Legal issues"
+HREF="legal-issues.html"></HEAD
+><BODY
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>cole Library Reference Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="cole-internals.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="legal-issues.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="BUGS"
+>Chapter 4. Bugs</A
+></H1
+><P
+>	cole developers have done their best effort to fix all the bugs of cole. But may be some of the are still hidden in the code. If you found one (or many!), please send a report to the maintainer (<A
+HREF="mailto:arturo@directmail.org"
+TARGET="_top"
+>&#60;arturo@directmail.org&#62;</A
+>). When sending a report, please:</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Describe with detail the behavior of cole and why you think it's a bug.
+		</P
+></LI
+><LI
+><P
+>			Configure cole using the argument <A
+HREF="how-to-compile.html"
+>--enable-verbose</A
+> and send the output showing the bug.
+		</P
+></LI
+><LI
+><P
+>			Send the content of the variables <A
+HREF="cole-api.html#COLE-VERSION"
+>cole_version</A
+> and <A
+HREF="cole-api.html#COLE-HOST-INFO"
+>cole_host_info</A
+> that the cole release you are using have. You wil have to write a little program to do this, but it will help much. =)
+		</P
+></LI
+><LI
+><P
+>			If you can, send the most small source code that shows the bug in action. May be you want to send the Structured Storage file you have been processing.
+		</P
+></LI
+><LI
+><P
+>			You can send the files <TT
+CLASS="FILENAME"
+>config.log</TT
+> and <TT
+CLASS="FILENAME"
+>config.cache</TT
+> (which were created by <TT
+CLASS="FILENAME"
+>configure</TT
+>) if you want.
+		</P
+></LI
+></OL
+><P
+>	Thank you very much.</P
+><P
+>	Following is the <TT
+CLASS="FILENAME"
+>BUGS</TT
+> file for this release.</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;Report bugs to the maintainer (see the file `AUTHORS' for details).
+Please, along with your detailed report, send the cole's output when compiled
+using `--enable-verbose' (see the files `README' and `INSTALL' for details).
+
+
+Current bugs:
+**************
+
+None.
+
+
+Fixed bugs:
+************
+
+Reported that cole can't read files biggers that 8Mb. UPDATE: oledecod.c is
+changed now to read additional blocks to the bbd. This fixes the bug.
+
+Reported strange bug in cole 0.1.0 using Solaris using `../demo sprsheet.xls'
+in examples directory. We need more test there! UPDATE: Seems to be fixed in
+cole 1.0.0 with the endianess care code.
+
+
+Possible bugs:
+**************
+
+* cole is not reentrant safe (it's in TODO):
+  What happend if, in any program, one user tries to decode and/or code
+  two files (the same or diferent)? Because static vars, will it get
+  broke? I think yes, mmmh...&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="cole-internals.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="legal-issues.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Internals</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Legal issues</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,72 @@
+#!/usr/bin/perl -w
+#
+# xlv - pass xl file thru xlHtml and display as plain text
+# The point of this script is to produce legible approximation of the
+# spreadsheet within 80 columns, sacrificing data as necessary to fit.
+# This aids reading mail with mutt. Works well for phone lists and stuff
+# like that.
+#
+# Copyright Asher Blum <asher@wildspark.com> November 2000
+# Released per the GNU General Public License
+
+use strict;
+my $term_width = 80;
+undef $/;
+my $xls = <>;
+my $fn = "/tmp/$$.xls";
+open "XL", ">$fn" or die "Can't open XLS: $!";
+print XL $xls;
+close XL;
+open HTML, "xlhtml $fn |" or die "Can't start xlhtml: $!";
+my $page = <HTML>;
+close HTML;
+my @table;
+$page =~ s/&nbsp;/ /g;
+$page =~ s/\s+/ /g;
+my @rows = split(/<TR[^>]*>/i, $page);
+shift @rows;
+my @total_width = my @width = map 0, split /<TD[^>]*>/i, $rows[ 0 ];
+foreach my $row(@rows) {
+    my @cells = split /<TD[^>]*>/i, $row;
+    shift @cells;
+    pop @cells;
+    for(0..$#cells) {
+        $cells[ $_ ] =~ s/<[^>]+>//g;
+        $cells[ $_ ] =~ s/\s+$//;
+        $width[ $_ ] = length($cells[ $_ ])
+          unless $width[ $_ ] > length($cells[ $_ ]);
+        $total_width[ $_ ] += length($cells[ $_ ]);
+    }
+    push @table, [ @cells ];
+}
+
+# Now trim the widths to fit avail terminal width
+
+my @avg_width = map($_ / @rows, @total_width);
+my @waste_width = map($width[ $_ ] - $avg_width[ $_ ], 0..$#width);
+while(sum(@width) > $term_width - @width) { # remember, we waste 1 
+space
+    my $mw = most_wasteful();
+    $width[ most_wasteful() ]--;
+    @waste_width = map($width[ $_ ] - $avg_width[ $_ ], 0..$#width);
+}
+foreach my $row(@table) {
+    for(0..(@$row - 1)) {
+
+        printf('%-' . $width[ $_ ] . '.' . $width[ $_ ] . 's ', $row->[ $_ ]);
+    }
+    print"\n";
+}
+sub sum {
+    my $s;
+    $s += $_ for @_;
+    $s;
+}
+sub most_wasteful {
+    my $max = 0;
+    for(0..$#waste_width) {
+        $max = $_ if $waste_width[ $_ ] > $max;
+    }
+    $max;
+}
+

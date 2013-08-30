@@ -1,0 +1,64 @@
+AC_INIT
+
+dnl Host
+AC_CANONICAL_HOST
+HOST_CANONICAL_NAME=$host
+HOST_ALIAS_NAME=${host_alias}
+HOST_CPU=${host_cpu}
+HOST_VENDOR=${host_vendor}
+HOST_OS=${host_os}
+AC_SUBST(HOST_CANONICAL_NAME)
+AC_SUBST(HOST_ALIAS_NAME)
+AC_SUBST(HOST_CPU)
+AC_SUBST(HOST_VENDOR)
+AC_SUBST(HOST_OS)
+ 
+AM_INIT_AUTOMAKE(xlhtml/xlhtml, 0.4.9.3)
+AM_CONFIG_HEADER(config.h)
+
+AC_PROG_CC
+AC_PROG_RANLIB
+AC_ISC_POSIX
+
+AC_CHECK_HEADERS(malloc.h)
+
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_TYPE_SIZE_T
+AC_CHECK_SIZEOF(unsigned char)
+AC_CHECK_SIZEOF(unsigned short)
+AC_CHECK_SIZEOF(unsigned int)
+AC_CHECK_SIZEOF(unsigned long)
+AC_CHECK_SIZEOF(unsigned long long)
+AC_CHECK_SIZEOF(float)
+AC_CHECK_SIZEOF(double)
+AC_CHECK_SIZEOF(long double)
+AC_C_BIGENDIAN
+
+AC_CHECK_TOOL([STRIP],[strip])
+
+dnl     4a) Increment when remove or change interfaces.
+dnl     [USER SHOULD UPDATE]
+COLE_MAJOR=2
+dnl     4a) 5) Increment when add interfaces.
+dnl     6) Set to zero when remove (or change) interfaces.
+dnl     [PROGRAMMERS SHOULD LOOK WHAT'S NEW]
+COLE_MINOR=0
+dnl     3) Increment when interfaces not changed at all,
+dnl               only bug fixes or internal changes.
+dnl     4b) Set to zero when add, remove or change interfaces.
+dnl     [ONLY MAINTAINER SHOULD CARE]
+COLE_MICRO=2
+dnl
+dnl     Set this too (I don't know how to do it automatically =) ):
+COLE_MAJOR_PLUS_COLE_MINOR=2
+dnl
+AC_SUBST(COLE_MAJOR)
+AC_SUBST(COLE_MINOR)
+AC_SUBST(COLE_MICRO)
+  
+
+AC_OUTPUT([Makefile cole/Makefile cole/version.c cole/cole.h xlhtml/Makefile ppthtml/Makefile])
+
+

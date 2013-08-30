@@ -1,0 +1,60 @@
+
+<sect1 id="distribution-and-freedom">
+<title>Distribution and Freedom</title>
+<para>
+	cole is Free Software, which means is distributed under a license that protect your freedom. cole distribution license is compatible with the <ulink URL="http://www.opensource.org/">Open Source</ulink> definition.
+</para>
+<para>
+	cole is distributed under the terms of the <link linkend="gpl-license">GNU General Public License</link> (GPL). A copy of the license is in the file <filename>COPYING</filename> in the source code and in this document. Particulary, this means at least two things:
+</para>
+<orderedlist>
+	<listitem>
+		<para>
+			All the code statically or dinamically linked against cole must be distributed under the terms of a license compatible with GPL.
+		</para>
+	</listitem>
+	<listitem>
+		<para>
+			If you change the cole source code and you want to distribute a compiled version, you must release the changed cole source code too.
+		</para>
+	</listitem>
+</orderedlist>
+</sect1>
+
+
+<sect1 id="trademarks">
+<title>Trademarks</title>
+<para>
+	"Microsoft Word", "Microsoft Excel", "Microsoft Publisher" and "Microsoft Power Point" are trademarks of Microsoft Corporation.
+</para>
+<para>
+"StarOffice" may be is a trademark of StarDivision.
+</para>
+<para>
+"FlashPix" may be is a trademark.
+</para>
+<para>
+"UNIX" is a trademark.
+</para>
+<para>
+	"Free Software" is not trademark of anyone, but it's an important term in the Free Software community, and for the Free Software Foundation.
+</para>
+<para>
+	All other trademarks are the property of their respective owners.
+</para>
+<para>
+	If another trademark is mentioned in this document and it needs to be listed above, please email to the maintainer (&maintainer-email-ulink;).
+</para>
+</sect1>
+
+
+<sect1 id="copyright-and-disclaimer">
+<title>Copyright and disclaimer</title>
+<para>
+	This document is copyright 1999 by &author-name-full;. This document is free software; you can redistribute it and/or modify it under the terms of the <link linkend="gpl-license">GNU General Public License</link> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+</para>
+<para>
+	This document is provided as is without any express or implied warranties. While every effort has been taken to ensure the accuracy of the information contained in this document, the author/maintainer/contributors assume(s) no responsibility for errors or omissions, or for damages resulting from the use of the information contained herein.
+</para>
+</sect1>
+

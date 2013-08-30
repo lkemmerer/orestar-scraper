@@ -1,0 +1,25 @@
+uploader.pl is a cgi-bin wrapper that allows a server with xlhtml
+to convert xls files via the Netscape Upload form. Note: there is a 
+file size limit of 128K. Here's the steps to get it working on Apache:
+
+1) With a editor, go to line 45 and correct the path to the xlhtml
+   executable on your system. You can use 'which xlhtml' if you don't know.
+   Also, line 1 may need changing depending on where perl is on your system.
+2) Copy the file uploader to /home/httpd/cgi-bin
+3) cd /home/httpd/cgi-bin
+4) chmod +x uploader.pl from the cgi-bin directory
+5) In the cgi-bin directory mkdir tempdata
+6) chmod 0007 tempdata
+7) In Netscape, type: http://localhost/cgi-bin/uploader.pl   and press Enter.
+   If it is setup correctly, you should have a form and then you can
+   select Test.xls if you don't have one and try it.
+
+
+
+enjoy
+
+
+________________________________________________________________________
+                                David Nicol 816.235.1187 nicold@umkc.edu
+                            "Atomkraft? Nein, danke!" -- Martin Schwartz
+                            

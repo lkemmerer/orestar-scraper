@@ -1,0 +1,69 @@
+Welcome to ppthtml.
+
+
+I. INTRODUCTION
+The ppthtml program will take a PowerPoint 97/95 file as input and convert 
+it to html. The output is via standard out so it can be re-directed
+to files or piped to filters or used as a gateway to the internet.
+
+II. INSTALLATION
+To build this application, from the top directory, type:
+ 
+ ./configure --prefix=/<target installation directory e.g. /usr/local or /opt>
+ make
+ make install
+
+Then to finish it up, you will need to go into netscape and tell the navigator 
+to use the nspptview script to handle Microsoft Excel files. 
+
+	e.g. <path to executable>/nspptview %s 
+
+You should be able to then browse to a file and open it. There is a file 
+included in the ppthtml directory you can test with, test.ppt.
+
+The shell script nspptview works well. You may need to modify the 
+path in it to fit you system, though. Also, depending on where you install 
+it, you may have to modify your PATH environmental variable.
+
+
+III. UNINSTALLING
+You may want to keep the tar directory around since you can do a make uninstall
+later. In the meantime, I suggest doing a make clean after installation to 
+get the size down.
+
+
+IV. COMMANDLINE OPTIONS
+ppthtml now has several command line options that let you tailor its output. The
+command is now:  ppthtml [] file.ppt
+
+
+V. PERFORMANCE TUNING
+There are also some user "tunable" parameters in the beginning of the 
+ppthtml.c file. If you get a red message at the bottom of your web browser after 
+converting a big presentation, these are the parameters to adjust. Generally, you 
+would adjust them up in value. I have them adjusted to what I call normal for 
+my usage. Your usage may differ. Don't increase them greatly...just 10-15% and 
+re-compile. If that don't work, increase another 10-15% until it works. 
+
+
+VI. TROUBLESHOOTING
+Using Netscape, you may occassionally see a file not found error. This usually 
+comes when printing or going back to a previously converted file. This is
+the default behavior and it can be changed by commenting out the rm $tmp* 
+in nspptview. I do this so you don't have files hanging around in your tmp
+directory where other people might be able to see them.
+
+In general, if you can type ppthtml and get a usage error message, the PATH
+is working. If you don't, your PATH environmental variable needs adjusting.
+Next try passing the full path to ppthtml of the file you want converted. If it
+has problems with it, you may have a file the system can't interpret. To check
+your installation, try passing the full path of ppthtml/threads.ppt and see what
+it does with that.
+
+
+
+
+Charles N  Wyble
+jackshck@yahoo.com
+
+

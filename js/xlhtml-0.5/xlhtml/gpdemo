@@ -1,0 +1,46 @@
+#!/bin/csh
+
+# File to render
+set source = Test.xls
+
+#Generate a unique html filename (/tmp/scriptname.pidnum.html)
+set com = $0
+set tmp = /tmp/$com:t.$$
+set gpcommand = $tmp.gp
+set gpdata = $tmp.dat
+set gpout = $tmp.gif
+
+# create gnuplot command file
+echo "set terminal gif small size 250,125 interlace xfdf5e6 x000000 x404040 x0000ff x00ff00" > $gpcommand
+echo "set grid ytics" >> $gpcommand
+echo "set nokey" >> $gpcommand
+echo "set nolabel" >> $gpcommand
+echo "set data style lines" >> $gpcommand
+echo "set noxzeroaxis" >> $gpcommand
+echo "set noyzeroaxis" >> $gpcommand
+echo 'set output "'$gpout'"' >> $gpcommand
+echo 'plot "'$gpdata'"' >> $gpcommand
+
+# create the data file
+xlhtml -fw -asc -xp:0 -xc:0-1 -xr:2-6 $source > $gpdata
+
+if ((!(-s $gpcommand)) | (!(-s $gpdata)) |($status)) then
+    echo "$0: failed to generate gnuplot command or data files"
+    exit 1
+endif
+
+#File exists and is of length > 0,  so do it...
+gnuplot $gpcommand
+
+if (!(-s $gpout)) then
+    echo "$0: failed to generate gif file"
+    exit 1
+endif
+
+# Display the results in Netscape
+nsopen $gpout
+
+# Clean up
+rm $tmp*
+
+exit 0

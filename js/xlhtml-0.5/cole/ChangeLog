@@ -1,0 +1,74 @@
+
+2.0.1  Arturo Tena <arturo@directmail.org> (1999-08):
+ + Fixed bug in cole.h which didn't include stdio.h.
+ + New util: cole_extract.
+ + Updated documentation.
+
+2.0.0  Arturo Tena <arturo@directmail.org> (1999-07):
+ + New good looking API: it's modeled after `stdio.h' ANSI C calls.
+ + Documentation of all public calls.
+ + OLEdecode and OLEcode are now internal functions and they must be not called.
+ + Write files (ie. what OLEcode() used to do) is not implemented by now.
+
+1.0.1  Arturo Tena <arturo@directmail.org> (1999-06-25):
+User level:
+ + Fixed a bug that may prevent from compile under Solaris.
+
+1.0.0: Arturo Tena <arturo@directmail.org>
+User level:
+ + Autoconf-ified (now cole have configure script).
+ + Automake-ified (now Makefile have standard targets).
+ + Objects archived now in a static library: libcole.a.
+ + Can compile a dynamic library.
+ + Check endianess of machine.
+ + Fix some bugs when reading damaged files.
+ + Added --enable-cole-verbose option.
+ + Added --enable-osf-align-check (thanks to Bernhard Reiter).
+ + A cole.spec file to make a RPM package and a cole.lsm to MetaLab archive.
+ + Documentation written.
+Developer Level:
+ + Added some macros and functions in support.h
+ + Change name from test to test_exitf define.
+ + Create a new test and test_call_exitf define.
+ + Rename max function to max3 (preparing to compile in Borland C).
+ + fil_swriteU8 disappeared.
+ + Clean up some files.
+
+0.1.0:
+Arturo Tena <arturo@directmail.org>
+ + Change name from oledecod to cole.
+ + Add olecod.c and olecod.h.
+ + Modified demo.c to call OLEcod.
+ + Changed pps->name, first character can be from 00 to 10, or so, as
+   originally is in ole 2 files.
+ + Modified some errors in OLEdecod.
+ + Create test suit, some doc files.
+ + Improve this README.
+
+0.0.6:
+Arturo Tena <arturo@directmail.org>
+ + Fix the checking while reordering pps list.
+ + Add instructions on how to apply patches.
+
+0.0.5:
+Arturo Tena <arturo@directmail.org>
+ + Fix the "Add some fool integrity checking while reading small block
+   depot" fix. Was > instead <=. =)
+ + While reading a broken OLE file, added some checking while reordering
+   pps list.
+ + Added return parameter to freeOLEtree function.
+ + Some general clean up.
+
+0.0.4:
+Arturo Tena <arturo@directmail.org>
+ + Fix one stupid error while erasing the OLE tree.
+ + Add some fool integrity checking while reading small block depot.
+
+0.0.3:
+Arturo Tena <arturo@directmail.org>
+ + Add one parameter to OLEdecod; max_level, which is the maximum level
+   stream we will extract into files.
+ + Changed name from main.c to demo.c
+ + Added a simple Makefile
+ + Added this README file.
+

@@ -1,0 +1,93 @@
+
+HIGH PRIORITY:
+**************
+
+* Review all the documentation for style errors and so on.
+  PLEASE, ENGLISH SPEAKERS, HELP ME HERE!!!
+
+* Improve example of cole_recurse_tree() in examples/filesystem.c: include
+  actual callback functions, not just NULLs.
+
+* Write tests for all calls of the API: Improve example/directory.c:
+  missing some calls to test.
+
+* Call all the calls of the API in examples/demo.c.
+
+* Implement more API calls, like `stdio.h' ANSI C calls.
+
+* Search for `FIXME' in the source code... and fix some =).
+
+
+MEDIUM:
+*******
+
+* Improve tests, they must actually test the output of the public calls.
+
+* Investigate if it is possible to use `const' in static version variables.
+
+* Test cole_fopen() using wired filenames. ie "/", "//", "", etc. May be a
+  function that check the filename could be written.
+
+* Check input arguments of each call of the API, returning an colerror if
+  there are an error.
+
+* Say in the documentation that many other files can be `Structured Storage'
+  files too.
+
+* May be in cole 3.x, create a double char type in order to handle the complete
+  directory and file names.
+
+* Investigate how to avoid content of the structures COLEFILE and so on be
+  documented in the api document (their must be documented only in the internal
+  document).
+
+* Investigate how to force that calls begining with `_' to be in documentation
+  (their will be in internals).
+
+* Make api section is before internals section in generated documentation, but
+  COLEFS, COLEFILE, COLEDIR and COLEDIRENT must be documented in internals, not
+  in api.
+
+* Make cole fork safe.
+
+* Make reentrant safe.
+
+* Review Martin Schwartz mail:
+  ---QUOTE---
+  It might be helpful to you to have a look at the perl 5 (Ole::Storage) 
+  release file "Storage.pm" method "ole_head", giving some additional info
+  about big- and smallblocksize (offset 0x1e, 0x20) as well as about Extended 
+  Block Depot for very large files (offset 0x44, 0x48). And, sorry for my
+  screwed up namegiving...
+  ---END QUOTE---
+  The Extended Block Depot is implemented now, but bigblocksize and
+  smallblocksize are not implented yet.
+
+* Really use the results of the configure guesses, with #ifdef HAVE_x in code.
+
+* Make it compile using DJGPP and Borland C (we may need a custom Makefile and
+  a custom config.h).
+
+* Use void `swab(const void *from, void *to, size_t n);' (in fil_sread*
+  calls) if present, for performance, in support.c.
+
+* Replace cole_direntry_getday[12] and cole_direntry_getsec[12] calls with
+  another calls that return something useful.
+
+* Divide the RPM in cole and cole-devel packages (may be it's not necessary,
+  because cole package is not much big).
+
+
+
+NOT URGENT:
+***********
+
+* Use some package to discover uninitializated memory, use some profile
+  package, etc.
+
+* Use zlib to support compressed files.
+
+
+
+
+

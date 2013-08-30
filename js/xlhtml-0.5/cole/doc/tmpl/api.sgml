@@ -1,0 +1,434 @@
+<!-- ##### SECTION Title ##### -->
+API
+
+<!-- ##### SECTION Short_Description ##### -->
+Public cole API for the present release.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+Note: The separator character for filename components is '/'. So, a filename argument can be something like "/Macros/VB/Project1".
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### MACRO COLE_MAJOR_VERSION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO COLE_MINOR_VERSION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO COLE_MICRO_VERSION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### VARIABLE cole_major_version ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### VARIABLE cole_minor_version ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### VARIABLE cole_micro_version ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### VARIABLE cole_version ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### VARIABLE cole_host_info ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ENUM COLERRNO ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION cole_perror ##### -->
+<para>
+
+</para>
+
+@s: 
+@colerrno: 
+
+
+<!-- ##### STRUCT COLEFS ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT COLEDIR ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT COLEDIRENT ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### STRUCT COLEFILE ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION cole_mount ##### -->
+<para>
+
+</para>
+
+@filename: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_umount ##### -->
+<para>
+
+</para>
+
+@colefilesystem: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_print_tree ##### -->
+<para>
+
+</para>
+
+@colefilesystem: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_locate_filename ##### -->
+<para>
+
+</para>
+
+@colefilesystem: 
+@filename: 
+@info: 
+@action: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_recurse_tree ##### -->
+<para>
+
+</para>
+
+@colefilesystem: 
+@info: 
+@inroot: 
+@indirentry: 
+@indir: 
+@outdir: 
+@visitdir: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_fopen ##### -->
+<para>
+
+</para>
+
+@colefilesystem: 
+@filename: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_fopen_direntry ##### -->
+<para>
+
+</para>
+
+@coledirentry: 
+@colerrno: 
+@Returns: 
+<!-- # Unused Parameters # -->
+@colefilesystem: 
+
+
+<!-- ##### FUNCTION cole_fclose ##### -->
+<para>
+
+</para>
+
+@colefile: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_fread ##### -->
+<para>
+
+</para>
+
+@colefile: 
+@ptr: 
+@size: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_feof ##### -->
+<para>
+
+</para>
+
+@colefile: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_fsize ##### -->
+<para>
+
+</para>
+
+@colefile: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_ftell ##### -->
+<para>
+
+</para>
+
+@colefile: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_fseek ##### -->
+<para>
+
+</para>
+
+@colefile: 
+@delta: 
+@direction: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_frewind ##### -->
+<para>
+
+</para>
+
+@colefile: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_opendir_rootdir ##### -->
+<para>
+
+</para>
+
+@colefilesystem: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_opendir_direntry ##### -->
+<para>
+
+</para>
+
+@coledirentry: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_closedir ##### -->
+<para>
+
+</para>
+
+@coledir: 
+@colerrno: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_visiteddirentry ##### -->
+<para>
+
+</para>
+
+@coledir: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_nextdirentry ##### -->
+<para>
+
+</para>
+
+@coledir: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_direntry_isdir ##### -->
+<para>
+
+</para>
+
+@coledirentry: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_direntry_isfile ##### -->
+<para>
+
+</para>
+
+@coledirentry: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_dir_getname ##### -->
+<para>
+
+</para>
+
+@coledir: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_dir_getsize ##### -->
+<para>
+
+</para>
+
+@coledir: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_dir_getsec1 ##### -->
+<para>
+
+</para>
+
+@coledir: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_dir_getsec2 ##### -->
+<para>
+
+</para>
+
+@coledir: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_dir_getdays1 ##### -->
+<para>
+
+</para>
+
+@coledir: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_dir_getdays2 ##### -->
+<para>
+
+</para>
+
+@coledir: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_direntry_getname ##### -->
+<para>
+
+</para>
+
+@coledirentry: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_direntry_getsize ##### -->
+<para>
+
+</para>
+
+@coledirentry: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_direntry_getdays1 ##### -->
+<para>
+
+</para>
+
+@coledirentry: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_direntry_getsec1 ##### -->
+<para>
+
+</para>
+
+@coledirentry: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_direntry_getdays2 ##### -->
+<para>
+
+</para>
+
+@coledirentry: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cole_direntry_getsec2 ##### -->
+<para>
+
+</para>
+
+@coledirentry: 
+@Returns: 
+
+

@@ -1,0 +1,330 @@
+<HTML
+><HEAD
+><TITLE
+>How to compile cole</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.41"><LINK
+REL="HOME"
+TITLE="cole Library Reference Manual"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Requirements to compile"
+HREF="requirements-to-compile.html"><LINK
+REL="NEXT"
+TITLE="cole Library"
+HREF="libcole.html"></HEAD
+><BODY
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>cole Library Reference Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="requirements-to-compile.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libcole.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="HOW-TO-COMPILE"
+>Chapter 2. How to compile cole</A
+></H1
+><P
+>	The file <TT
+CLASS="FILENAME"
+>INSTALL</TT
+> in the source code gives detailed instructions on how to configure, compile and install cole.</P
+><P
+>	Briefly, you need to run the GNU standard <TT
+CLASS="FILENAME"
+>configure</TT
+> script, with the arguments you want. To see the arguments that <TT
+CLASS="FILENAME"
+>configure</TT
+> accepts, run <TT
+CLASS="USERINPUT"
+><B
+>./configure --help</B
+></TT
+>. The most usual argument is <TT
+CLASS="USERINPUT"
+><B
+>--prefix=PREFIX</B
+></TT
+>, which tells configure to install cole in the directory <TT
+CLASS="USERINPUT"
+><B
+>PREFIX</B
+></TT
+>. After that, you need to run <TT
+CLASS="USERINPUT"
+><B
+>make</B
+></TT
+> to compile cole, and <TT
+CLASS="USERINPUT"
+><B
+>make install</B
+></TT
+> to install it.</P
+><P
+>	The <TT
+CLASS="FILENAME"
+>configure</TT
+> script accepts, besides the standard arguments, the following flags:</P
+><P
+></P
+><TABLE
+BORDER="0"
+><TR
+><TD
+>		<TT
+CLASS="USERINPUT"
+><B
+>--enable-osf-check</B
+></TT
+>. Turn on short align for OSF compiler. If you have errors while compiling under OSF1, enable this flag.
+	</TD
+></TR
+><TR
+><TD
+>		<TT
+CLASS="USERINPUT"
+><B
+>--enable-verbose</B
+></TT
+>. Turn on verbose. It is useful if you want to send a bug report. It is useful for cole developers too.
+	</TD
+></TR
+><TR
+><TD
+>		<TT
+CLASS="USERINPUT"
+><B
+>--enable-debug</B
+></TT
+> Turn on GNU CC debug flags. It is useful for cole developers, so may be you don't want to use it.
+	</TD
+></TR
+></TABLE
+><P
+></P
+><P
+>	A tipical session is shown below.</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="PROMPT"
+>$</TT
+> <TT
+CLASS="USERINPUT"
+><B
+>ls</B
+></TT
+>
+cole-2.0.0.tar.gz
+<TT
+CLASS="PROMPT"
+>$</TT
+> <TT
+CLASS="USERINPUT"
+><B
+>gzip -d cole-2.0.0.tar.gz</B
+></TT
+>
+<TT
+CLASS="PROMPT"
+>$</TT
+> <TT
+CLASS="USERINPUT"
+><B
+>tar -xf cole-2.0.0.tar</B
+></TT
+>
+<TT
+CLASS="PROMPT"
+>$</TT
+> <TT
+CLASS="USERINPUT"
+><B
+>ls</B
+></TT
+>
+cole-2.0.0.tar      cole-2.0.0/
+<TT
+CLASS="PROMPT"
+>$</TT
+> <TT
+CLASS="USERINPUT"
+><B
+>cd cole-2.0.0</B
+></TT
+>
+<TT
+CLASS="PROMPT"
+>$</TT
+> <TT
+CLASS="USERINPUT"
+><B
+>./configure --prefix=/opt</B
+></TT
+>
+...
+Configured cole release 2.0.0 
+<TT
+CLASS="PROMPT"
+>$</TT
+> <TT
+CLASS="USERINPUT"
+><B
+>make</B
+></TT
+>
+...
+<TT
+CLASS="PROMPT"
+>$</TT
+> <TT
+CLASS="USERINPUT"
+><B
+>make install</B
+></TT
+>
+...
+<TT
+CLASS="PROMPT"
+>$</TT
+> <TT
+CLASS="USERINPUT"
+><B
+>make clean</B
+></TT
+>
+...</PRE
+></TD
+></TR
+></TABLE
+><P
+>	When installing, a shell script named <TT
+CLASS="FILENAME"
+>cole-config</TT
+> will be installed in <TT
+CLASS="FILENAME"
+>PREFIX/bin</TT
+> if you used the the <TT
+CLASS="USERINPUT"
+><B
+>--prefix=PREFIX</B
+></TT
+> argument, or in <TT
+CLASS="FILENAME"
+>/usr/local/bin</TT
+> if you didn't. That directory must be listed in the content of the enviroment variable PATH when configuring another program that uses cole.</P
+><P
+>	If you system support it, will be compiled and installed shared libraries, to minimize size of the executables. By this reason, is important to include the directory <TT
+CLASS="FILENAME"
+>PREFIX/bin</TT
+> or <TT
+CLASS="FILENAME"
+>/usr/local/bin</TT
+> (which appropiate) in the file that your system command <TT
+CLASS="FILENAME"
+>ldconfig</TT
+> reads in order to regenerate the list of shared libraries (in some systems, you can list the directory in the content of the enviroment variable LD_LIBRARY_PATH instead).</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="requirements-to-compile.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libcole.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Requirements to compile</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>cole Library</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

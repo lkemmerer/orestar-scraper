@@ -1,0 +1,47 @@
+#!/bin/bash
+
+file=$1
+
+if [ "$file"xx == xx ]
+then
+    echo "Usage: $0 file.doc"
+        exit 1
+fi
+
+source=$1
+
+#Generate a unique html filename (/tmp/scriptname.pidnum.html)
+# should use mkstemp, this is wholly bogus.
+com=basename $0
+tmp=/tmp/${com}:t.$$
+html=${tmp}.html
+
+xlhtml $source > $html
+
+if [ ! $? ]
+then
+	echo "xlhtml failed"
+	exit 4
+fi
+
+if [ ! -s $html ]
+then
+    echo "$0: failed to generate HTML file"
+    exit 1
+fi
+
+#File exists and is of length > 0, so open it
+nsopen $html
+
+#I do NOT remove the html file so that the user can click
+#on the "Back" button without generating a "file not found"
+#error - but uncomment the next line if you want it.
+
+if [ "$tmp"zz == zz ];
+then
+	echo "Aargh: \$tmp was null."
+else
+	rm ${tmp}*
+fi
+
+exit 0

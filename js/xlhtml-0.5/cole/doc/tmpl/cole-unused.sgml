@@ -1,0 +1,75 @@
+<!-- ##### FUNCTION cole_opendir ##### -->
+<para>
+
+</para>
+
+@colefilesystem: 
+@colerrno: 
+@Returns: 
+
+<!-- ##### FUNCTION OLEcode ##### -->
+<para>
+
+</para>
+
+@OLEfilename: 
+@trunc: 
+@stream_list: 
+@root: 
+@Returns: 
+
+<!-- ##### FUNCTION freeOLEtree ##### -->
+<para>
+
+</para>
+
+@tree: 
+@Returns: 
+
+<!-- ##### FUNCTION cole_ferror ##### -->
+<para>
+
+</para>
+
+@colefile: 
+@Returns: 
+
+<!-- ##### FUNCTION cole_direntry ##### -->
+<para>
+
+</para>
+
+@coledir: 
+@Returns: 
+
+<!-- ##### FUNCTION verbosePPSTree ##### -->
+<para>
+
+</para>
+
+@pps_list: 
+@root_pps: 
+@level: 
+
+<!-- ##### FUNCTION OLEdecode ##### -->
+<para>
+
+</para>
+
+@OLEfilename: 
+@stream_list: 
+@root: 
+@_BDepot: 
+@_SDepot: 
+@_sbfile: 
+@_input: 
+@max_level: 
+@Returns: 
+
+<!-- ##### FUNCTION cole_fclearerror ##### -->
+<para>
+
+</para>
+
+@colefile: 
+

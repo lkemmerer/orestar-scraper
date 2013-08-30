@@ -1,0 +1,5 @@
+0.4 ?
+Fix nasty Unicode bug when very large shared string tables are encountereds
+Support String formulas
+Reduce memory footprint
+Support data types by using their format string

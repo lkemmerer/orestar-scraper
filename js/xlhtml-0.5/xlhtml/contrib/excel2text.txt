@@ -1,0 +1,24 @@
+To enable Mutt to display Excel attachments, follow these steps.
+
+1.  Make sure the following programs are in a directory in your PATH:
+	excel2text
+	xlhtml
+	w3m	<http://ei5nazha.yz.yamagata-u.ac.jp/~aito/w3m/eng/>
+
+2.  Add these lines to Mutt's mailcap file:
+
+	application/excel;		excel2text %s; copiousoutput
+	application/ms-Excel;		excel2text %s; copiousoutput
+	application/msexcel;		excel2text %s; copiousoutput
+	application/vnd.ms-excel;	excel2text %s; copiousoutput
+	application/x-excel;		excel2text %s; copiousoutput
+	application/x-msexcel;		excel2text %s; copiousoutput
+
+3.  To have Mutt automatically expand Excel attachments in-line, in
+    addition to being able to view the attachments from the attachments
+    menu, add these lines to Mutt's configuration file (e.g.,
+    ~/.muttrc):
+
+	auto_view application/excel application/ms-Excel
+	auto_view application/msexcel application/vnd.ms-excel
+	auto_view application/x-excel application/x-msexcel

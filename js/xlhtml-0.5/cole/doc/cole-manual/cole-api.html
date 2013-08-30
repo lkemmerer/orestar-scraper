@@ -1,0 +1,4305 @@
+<HTML
+><HEAD
+><TITLE
+>API</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.41"><LINK
+REL="HOME"
+TITLE="cole Library Reference Manual"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="cole Library"
+HREF="libcole.html"><LINK
+REL="PREVIOUS"
+TITLE="cole Library"
+HREF="libcole.html"><LINK
+REL="NEXT"
+TITLE="Internals"
+HREF="cole-internals.html"></HEAD
+><BODY
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>cole Library Reference Manual</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libcole.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="cole-internals.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="COLE-API"
+>API</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN151"
+></A
+><H2
+>Name</H2
+>API&nbsp;--&nbsp;Public cole API for the present release.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN154"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>&#13;#include &#60;cole/cole.h&#62;
+
+
+#define     <A
+HREF="cole-api.html#COLE-MAJOR-VERSION"
+>COLE_MAJOR_VERSION</A
+>
+#define     <A
+HREF="cole-api.html#COLE-MINOR-VERSION"
+>COLE_MINOR_VERSION</A
+>
+#define     <A
+HREF="cole-api.html#COLE-MICRO-VERSION"
+>COLE_MICRO_VERSION</A
+>
+extern      int <A
+HREF="cole-api.html#COLE-MAJOR-VERSION"
+>cole_major_version</A
+>;
+extern      int <A
+HREF="cole-api.html#COLE-MINOR-VERSION"
+>cole_minor_version</A
+>;
+extern      int <A
+HREF="cole-api.html#COLE-MICRO-VERSION"
+>cole_micro_version</A
+>;
+extern      char *<A
+HREF="cole-api.html#COLE-VERSION"
+>cole_version</A
+>;
+extern      char *<A
+HREF="cole-api.html#COLE-HOST-INFO"
+>cole_host_info</A
+>;
+enum        <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+>;
+void        <A
+HREF="cole-api.html#COLE-PERROR"
+>cole_perror</A
+>                     (const char *s,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> colerrno);
+struct      <A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+>;
+struct      <A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+>;
+struct      <A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+>;
+struct      <A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+>;
+<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+>*     <A
+HREF="cole-api.html#COLE-MOUNT"
+>cole_mount</A
+>                      (char *filename,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+int         <A
+HREF="cole-api.html#COLE-UMOUNT"
+>cole_umount</A
+>                     (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+int         <A
+HREF="cole-api.html#COLE-PRINT-TREE"
+>cole_print_tree</A
+>                 (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+int         <A
+HREF="cole-api.html#COLE-LOCATE-FILENAME"
+>cole_locate_filename</A
+>            (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             char *filename,
+                                             void *info,
+                                             COLE_LOCATE_ACTION_FUNC *action,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+int         <A
+HREF="cole-api.html#COLE-RECURSE-TREE"
+>cole_recurse_tree</A
+>               (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             void *info,
+                                             COLE_RECURSE_DIR_FUNC *inroot,
+                                             COLE_RECURSE_DIRENT_FUNC *indirentry,
+                                             COLE_RECURSE_DIR_FUNC *indir,
+                                             COLE_RECURSE_DIR_FUNC *outdir,
+                                             COLE_RECURSE_VISIT_DIR_FUNC *visitdir,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+>*   <A
+HREF="cole-api.html#COLE-FOPEN"
+>cole_fopen</A
+>                      (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             char *filename,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+>*   <A
+HREF="cole-api.html#COLE-FOPEN-DIRENTRY"
+>cole_fopen_direntry</A
+>             (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+int         <A
+HREF="cole-api.html#COLE-FCLOSE"
+>cole_fclose</A
+>                     (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+size_t      <A
+HREF="cole-api.html#COLE-FREAD"
+>cole_fread</A
+>                      (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile,
+                                             void *ptr,
+                                             size_t size,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+int         <A
+HREF="cole-api.html#COLE-FEOF"
+>cole_feof</A
+>                       (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile);
+size_t      <A
+HREF="cole-api.html#COLE-FSIZE"
+>cole_fsize</A
+>                      (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile);
+size_t      <A
+HREF="cole-api.html#COLE-FTELL"
+>cole_ftell</A
+>                      (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile);
+int         <A
+HREF="cole-api.html#COLE-FSEEK"
+>cole_fseek</A
+>                      (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile,
+                                             size_t delta,
+                                             COLE_SEEK_FLAG direction,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+int         <A
+HREF="cole-api.html#COLE-FREWIND"
+>cole_frewind</A
+>                    (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+>*    <A
+HREF="cole-api.html#COLE-OPENDIR-ROOTDIR"
+>cole_opendir_rootdir</A
+>            (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+>*    <A
+HREF="cole-api.html#COLE-OPENDIR-DIRENTRY"
+>cole_opendir_direntry</A
+>           (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+int         <A
+HREF="cole-api.html#COLE-CLOSEDIR"
+>cole_closedir</A
+>                   (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);
+<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+>* <A
+HREF="cole-api.html#COLE-VISITEDDIRENTRY"
+>cole_visiteddirentry</A
+>            (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);
+<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+>* <A
+HREF="cole-api.html#COLE-NEXTDIRENTRY"
+>cole_nextdirentry</A
+>               (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);
+int         <A
+HREF="cole-api.html#COLE-DIRENTRY-ISDIR"
+>cole_direntry_isdir</A
+>             (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);
+int         <A
+HREF="cole-api.html#COLE-DIRENTRY-ISFILE"
+>cole_direntry_isfile</A
+>            (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);
+char*       <A
+HREF="cole-api.html#COLE-DIR-GETNAME"
+>cole_dir_getname</A
+>                (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);
+size_t      <A
+HREF="cole-api.html#COLE-DIR-GETSIZE"
+>cole_dir_getsize</A
+>                (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);
+long        <A
+HREF="cole-api.html#COLE-DIR-GETSEC1"
+>cole_dir_getsec1</A
+>                (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);
+long        <A
+HREF="cole-api.html#COLE-DIR-GETSEC2"
+>cole_dir_getsec2</A
+>                (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);
+long        <A
+HREF="cole-api.html#COLE-DIR-GETDAYS1"
+>cole_dir_getdays1</A
+>               (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);
+long        <A
+HREF="cole-api.html#COLE-DIR-GETDAYS2"
+>cole_dir_getdays2</A
+>               (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);
+char*       <A
+HREF="cole-api.html#COLE-DIRENTRY-GETNAME"
+>cole_direntry_getname</A
+>           (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);
+size_t      <A
+HREF="cole-api.html#COLE-DIRENTRY-GETSIZE"
+>cole_direntry_getsize</A
+>           (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);
+long        <A
+HREF="cole-api.html#COLE-DIRENTRY-GETDAYS1"
+>cole_direntry_getdays1</A
+>          (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);
+long        <A
+HREF="cole-api.html#COLE-DIRENTRY-GETSEC1"
+>cole_direntry_getsec1</A
+>           (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);
+long        <A
+HREF="cole-api.html#COLE-DIRENTRY-GETDAYS2"
+>cole_direntry_getdays2</A
+>          (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);
+long        <A
+HREF="cole-api.html#COLE-DIRENTRY-GETSEC2"
+>cole_direntry_getsec2</A
+>           (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN280"
+></A
+><H2
+>Description</H2
+><P
+>Note: The separator character for filename components is '/'. So, a filename argument can be something like "/Macros/VB/Project1".&#13;</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN283"
+></A
+><H2
+>Details</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN285"
+></A
+><H3
+><A
+NAME="COLE-MAJOR-VERSION"
+></A
+>COLE_MAJOR_VERSION</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define COLE_MAJOR_VERSION 2</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN290"
+></A
+><H3
+><A
+NAME="COLE-MINOR-VERSION"
+></A
+>COLE_MINOR_VERSION</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define COLE_MINOR_VERSION 0</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN295"
+></A
+><H3
+><A
+NAME="COLE-MICRO-VERSION"
+></A
+>COLE_MICRO_VERSION</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#define COLE_MICRO_VERSION 1</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN300"
+></A
+><H3
+><A
+NAME="COLE-MAJOR-VERSION"
+></A
+>cole_major_version</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>extern int cole_major_version;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN305"
+></A
+><H3
+><A
+NAME="COLE-MINOR-VERSION"
+></A
+>cole_minor_version</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>extern int cole_minor_version;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN310"
+></A
+><H3
+><A
+NAME="COLE-MICRO-VERSION"
+></A
+>cole_micro_version</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>extern int cole_micro_version;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN315"
+></A
+><H3
+><A
+NAME="COLE-VERSION"
+></A
+>cole_version</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>extern char *cole_version;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN320"
+></A
+><H3
+><A
+NAME="COLE-HOST-INFO"
+></A
+>cole_host_info</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>extern char *cole_host_info;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN325"
+></A
+><H3
+><A
+NAME="COLERRNO"
+></A
+>enum COLERRNO</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>enum COLERRNO {
+/* &#38; = means that you can use perror(3) call to print an error message */
+/* you can always use cole_perror to print an error message */
+	COLE_EFIRST,		/* Leave this at first place */
+/*&#38;*/	COLE_EMEMORY,		/* Failed malloc(3) or realloc(3) */
+/*&#38;*/	COLE_EOPENFILE,		/* Failed fopen(3) */
+/*&#38;*/	COLE_ECLOSEFILE,	/* Failed fclose(3) */
+/*&#38;*/	COLE_EREAD,		/* Failed fread(3) */
+/*&#38;*/	COLE_EWRITE,		/* Failed fwrite(3) */
+/*&#38;*/	COLE_EREMOVE,		/* Failed remove(3) */
+/*&#38;*/	COLE_ETMPNAM,		/* Failed tmpnam(3) */
+/*&#38;*/	COLE_ESEEK,		/* Failed fseek(3) */
+/*&#38;*/	COLE_EERRNO,		/* Some system call failed */
+	COLE_ENOFILESYSTEM,	/* File is not a filesystem */
+	COLE_EINVALIDFILESYSTEM,/* Filesystem is broken, it's invalid */
+	COLE_EISNOTDIR,		/* Directory entry is not a directory */
+	COLE_EISNOTFILE,	/* Directory entry is not a file */
+	COLE_EFILENOTFOUND,	/* Doesn't exist a file with the given name */
+	COLE_EOF,		/* End of file has been reached */
+	COLE_EMEMBERISNOTDIR,	/* A member of the filename is not
+				   a directory */
+	COLE_EBROKENFILENAME,	/* The filename is not right written */
+	COLE_EFILENAMEISNOTFILE,/* Filename is not a file */
+	COLE_EFSEEKDELTA,	/* Delta argument is not valid */
+	COLE_EFSEEKFLAG,	/* Flag argument is not valid */
+	COLE_EUNKNOWN,		/* An unknown error ocurred, can be a bug */
+	COLE_ELAST		/* Leave this at last place */
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN330"
+></A
+><H3
+><A
+NAME="COLE-PERROR"
+></A
+>cole_perror ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>void        cole_perror                     (const char *s,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Prints a message on the standard error output, describing the error
+<TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+>, preceding it with the string <TT
+CLASS="PARAMETER"
+><I
+>s</I
+></TT
+>, a semicolon and a space.
+It handles COLE_EERRNO value too, calling perror(3).</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>s</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> string to print before the error message. It can be NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value of which a message will be printed.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN352"
+></A
+><H3
+><A
+NAME="COLEFS"
+></A
+>struct COLEFS</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct COLEFS {
+	/* This structure is for internal use only, not for the public API */
+	pps_entry *tree;
+	U32 root;			/* entry root, root pps_entry */
+	U8 *BDepot;
+	U8 *SDepot;
+	FILE *sbfile;
+	char *sbfilename;
+	FILE *file;			/* actual file (the filesystem) */
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN357"
+></A
+><H3
+><A
+NAME="COLEDIR"
+></A
+>struct COLEDIR</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct COLEDIR {
+	/* This structure is for internal use only, not for the public API */
+	U32 entry;
+	struct _COLEDIRENT visited_entry;
+	struct _COLEFS *fs;		/* father */
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN362"
+></A
+><H3
+><A
+NAME="COLEDIRENT"
+></A
+>struct COLEDIRENT</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct COLEDIRENT {
+	/* This structure is for internal use only, not for the public API */
+	U32 entry;
+	struct _COLEDIR *dir;		/* father */
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN367"
+></A
+><H3
+><A
+NAME="COLEFILE"
+></A
+>struct COLEFILE</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct COLEFILE {
+	/* This structure is for internal use only, not for the public API */
+	U32 entry;
+	FILE *file;			/* actual extracted file */
+	char *filename;			/* actual extracted file's name */
+	U32 filesize;			/* actual extracted file size */
+	struct _COLEFS *fs;		/* father */
+	U32 pos;			/* file pointer position */
+};</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN372"
+></A
+><H3
+><A
+NAME="COLE-MOUNT"
+></A
+>cole_mount ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+>*     cole_mount                      (char *filename,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Mounts the filesystem which is in <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> name of the file with the filesystem.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (COLE_EMEMORY, COLE_EOPENFILE, COLE_ENOFILESYSTEM, 
+COLE_EINVALIDFILESYSTEM, COLE_EUNKNOWN).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> a filesystem in success, or NULL in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN398"
+></A
+><H3
+><A
+NAME="COLE-UMOUNT"
+></A
+>cole_umount ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         cole_umount                     (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Umounts the filesystem <TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> filesystem to umount.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (COLE_ECLOSEFILE, COLE_EREMOVE).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> zero in success, no zero in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN424"
+></A
+><H3
+><A
+NAME="COLE-PRINT-TREE"
+></A
+>cole_print_tree ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         cole_print_tree                 (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Prints on the standard output the tree of files and directories contained
+in <TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+>.
+Currently this call always success.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> filesystem of which the tree will be printed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (errors from call <A
+HREF="cole-api.html#COLE-RECURSE-TREE"
+>cole_recurse_tree</A
+>()).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> zero in success, no zero in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN451"
+></A
+><H3
+><A
+NAME="COLE-LOCATE-FILENAME"
+></A
+>cole_locate_filename ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         cole_locate_filename            (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             char *filename,
+                                             void *info,
+                                             COLE_LOCATE_ACTION_FUNC *action,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Locate the <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+> in the filesystem <TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+>, calling <TT
+CLASS="PARAMETER"
+><I
+>action</I
+></TT
+> when
+it's found. <TT
+CLASS="PARAMETER"
+><I
+>info</I
+></TT
+> is arbitrary pointer passed to <TT
+CLASS="PARAMETER"
+><I
+>action</I
+></TT
+>.
+Currently, <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+> must begin with a '/' character, it means <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+> is
+the absolute filename.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> filesystem where to locate <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> name of the file or directory to be located.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>info</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> arbitrary pointer passed to <TT
+CLASS="PARAMETER"
+><I
+>action</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>action</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> pointer to the function that is called when founding <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+>.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (COLE_EUNKNOWN, COLE_EMEMBERISNOTDIR,
+COLE_EFILENOTFOUND, COLE_EBROKENFILENAME, errors
+from call <A
+HREF="cole-api.html#COLE-RECURSE-TREE"
+>cole_recurse_tree</A
+>()).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> zero in success, 1  in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN500"
+></A
+><H3
+><A
+NAME="COLE-RECURSE-TREE"
+></A
+>cole_recurse_tree ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         cole_recurse_tree               (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             void *info,
+                                             COLE_RECURSE_DIR_FUNC *inroot,
+                                             COLE_RECURSE_DIRENT_FUNC *indirentry,
+                                             COLE_RECURSE_DIR_FUNC *indir,
+                                             COLE_RECURSE_DIR_FUNC *outdir,
+                                             COLE_RECURSE_VISIT_DIR_FUNC *visitdir,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Recurse the filesystem <TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+>, calling the functions pointed by
+<TT
+CLASS="PARAMETER"
+><I
+>inroot</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>indirentry</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>indir</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>outdirectory</I
+></TT
+> when start visiting
+root directory, start visiting any directory entry (file or directory),
+start visiting a directory or end visiting a directory, respectively.
+If <TT
+CLASS="PARAMETER"
+><I
+>visitdir</I
+></TT
+> returns no zero or it's NULL, the directory is visited,
+otherwise is not visited.
+<TT
+CLASS="PARAMETER"
+><I
+>info</I
+></TT
+> is a arbitrary pointer which is passed to the functions pointed by
+<TT
+CLASS="PARAMETER"
+><I
+>inroot</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>indirentry</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>indir</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>outdirectory</I
+></TT
+>: it may be used to share
+arbitrary information between them.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> filesystem to recurse.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>info</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> arbitrary pointer passed to the functions.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>inroot</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> pointer to the function that is called when start visiting root
+directory. It can be NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>indirentry</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> pointer to the function that is called when start visiting any
+directory entry (file or directory). It can be NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>indir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> pointer to the function that is called when start visiting a
+directory. It can be NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>outdir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> pointer to the function that is called when end visiting a
+directory. It can be NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>visitdir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> pointer to the function that is called to know if visit a
+directory. It can be NULL.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (errors from calls <A
+HREF="cole-api.html#COLE-OPENDIR-ROOTDIR"
+>cole_opendir_rootdir</A
+>(),
+<A
+HREF="cole-api.html#COLE-OPENDIR-DIRENTRY"
+>cole_opendir_direntry</A
+>(), <A
+HREF="cole-api.html#COLE-CLOSEDIR"
+>cole_closedir</A
+>() and
+inroot, indirentry, indir, and outdir functions).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> zero if recursed all the tree, no zero in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN568"
+></A
+><H3
+><A
+NAME="COLE-FOPEN"
+></A
+>cole_fopen ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+>*   cole_fopen                      (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             char *filename,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Opens the file with the name <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+> in the filesystem <TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+>.
+Currently, <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+> must begin with a '/' character, it means <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+> is
+the absolute filename.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> filesystem in which <TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+> is in.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> name of the file to open.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (COLE_EFILENOTFOUND, errors from calls
+<A
+HREF="cole-api.html#COLE-OPENDIR-ROOTDIR"
+>cole_opendir_rootdir</A
+>(), <A
+HREF="cole-api.html#COLE-FOPEN-DIRENTRY"
+>cole_fopen_direntry</A
+>() and
+<A
+HREF="cole-api.html#COLE-LOCATE-FILENAME"
+>cole_locate_filename</A
+>()).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> a file in success, or NULL in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN606"
+></A
+><H3
+><A
+NAME="COLE-FOPEN-DIRENTRY"
+></A
+>cole_fopen_direntry ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+>*   cole_fopen_direntry             (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Opens a directory entry as file.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> directory entry to be opened as file.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (COLE_EISNOTFILE, COLE_EMEMORY, COLE_ETMPNAM,
+COLE_EOPENFILE, COLE_EINVALIDFILESYSTEM, COLE_EREAD,
+COLE_EWRITE, COLE_EUNKNOWN).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> a file in success, or NULL in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN632"
+></A
+><H3
+><A
+NAME="COLE-FCLOSE"
+></A
+>cole_fclose ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         cole_fclose                     (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Closes the file <TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> file to be closed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (COLE_ECLOSEFILE, CLOSE_EREMOVE).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> zero in sucess, no zero in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN658"
+></A
+><H3
+><A
+NAME="COLE-FREAD"
+></A
+>cole_fread ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>size_t      cole_fread                      (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile,
+                                             void *ptr,
+                                             size_t size,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Reads <TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+> bytes from <TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+> and store them in the location given
+by <TT
+CLASS="PARAMETER"
+><I
+>ptr</I
+></TT
+>. If not success, the file position indicator is not changed.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> file to be read.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>ptr</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> memory location where the bytes will be stored.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> how many bytes will be read.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (COLE_EOF, COLE_EREAD, COLE_ESEEK).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> in sucess the number of bytes actually readed (maximum <TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+>)
+or zero in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN697"
+></A
+><H3
+><A
+NAME="COLE-FEOF"
+></A
+>cole_feof ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         cole_feof                       (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Tests if the end of file has been reached in <TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> file to be tested.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> no zero if the end of file has been reached, zero in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN718"
+></A
+><H3
+><A
+NAME="COLE-FSIZE"
+></A
+>cole_fsize ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>size_t      cole_fsize                      (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> file of which its size will be returned.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>the size in bytes of the file <TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+>.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN740"
+></A
+><H3
+><A
+NAME="COLE-FTELL"
+></A
+>cole_ftell ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>size_t      cole_ftell                      (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Get the current value of the file position indicator for the file
+<TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+>.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> file of which the file position indicator will be get.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> The file position.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN762"
+></A
+><H3
+><A
+NAME="COLE-FSEEK"
+></A
+>cole_fseek ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         cole_fseek                      (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile,
+                                             size_t delta,
+                                             COLE_SEEK_FLAG direction,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the value of the file position indicator for the file <TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+>
+<TT
+CLASS="PARAMETER"
+><I
+>delta</I
+></TT
+> bytes from the beginning of the file, forward from the current
+position, backward from the current position, or from the end of the
+file, if <TT
+CLASS="PARAMETER"
+><I
+>direction</I
+></TT
+> is COLE_SEEK_SET, COLE_SEEK_BACKWARD,
+COLE_SEEK_FORWARD or COLE_SEEK_END, respectively.
+The file position indicator will always be &#60;= <TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+>-&#62;filesize.
+If you <TT
+CLASS="PARAMETER"
+><I
+>delta</I
+></TT
+> is such that the previous line would not true, cole_fseek
+fails.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> file of which its file position indicator will be set.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>delta</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> number of bytes that the file position indicator will be moved.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>direction</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> from where start to count the <TT
+CLASS="PARAMETER"
+><I
+>delta</I
+></TT
+> bytes.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (COLE_EFSEEKDELTA).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> zero in success, no zero in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN803"
+></A
+><H3
+><A
+NAME="COLE-FREWIND"
+></A
+>cole_frewind ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         cole_frewind                    (<A
+HREF="cole-api.html#COLEFILE"
+>COLEFILE</A
+> *colefile,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Sets the value of the file position indicator for the file <TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+>
+in the beginning of the file.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefile</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> file of which its file position indicator will be rewind.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (error from call <A
+HREF="cole-api.html#COLE-FSEEK"
+>cole_fseek</A
+>()).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> zero in success, no zero in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN830"
+></A
+><H3
+><A
+NAME="COLE-OPENDIR-ROOTDIR"
+></A
+>cole_opendir_rootdir ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+>*    cole_opendir_rootdir            (<A
+HREF="cole-api.html#COLEFS"
+>COLEFS</A
+> *colefilesystem,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Opens the root directory of the filesystem <TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+> as directory.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colefilesystem</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> filesystem of which the root directory will be opened.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (COLE_EMEMORY).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> a directory in success, or NULL in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN857"
+></A
+><H3
+><A
+NAME="COLE-OPENDIR-DIRENTRY"
+></A
+>cole_opendir_direntry ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+>*    cole_opendir_direntry           (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Opens a directory entry as directory.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> directory entry to be opened as directory.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value (COLE_EISNOTDIR, COLE_EMEMORY).</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> a directory in success, or NULL in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN883"
+></A
+><H3
+><A
+NAME="COLE-CLOSEDIR"
+></A
+>cole_closedir ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         cole_closedir                   (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir,
+                                             <A
+HREF="cole-api.html#COLERRNO"
+>COLERRNO</A
+> *colerrno);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Closes the directory <TT
+CLASS="PARAMETER"
+><I
+>coledir</I
+></TT
+>.
+Currently this call always success.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> directory to be closed.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>colerrno</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> error value().</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> zero in success, no zero in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN910"
+></A
+><H3
+><A
+NAME="COLE-VISITEDDIRENTRY"
+></A
+>cole_visiteddirentry ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+>* cole_visiteddirentry            (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN930"
+></A
+><H3
+><A
+NAME="COLE-NEXTDIRENTRY"
+></A
+>cole_nextdirentry ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+><A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+>* cole_nextdirentry               (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN950"
+></A
+><H3
+><A
+NAME="COLE-DIRENTRY-ISDIR"
+></A
+>cole_direntry_isdir ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         cole_direntry_isdir             (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Tests if the directory entry <TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> is a directory.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> directory entry to be tested.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> no zero if it is a directory, zero in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN971"
+></A
+><H3
+><A
+NAME="COLE-DIRENTRY-ISFILE"
+></A
+>cole_direntry_isfile ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>int         cole_direntry_isfile            (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);</PRE
+></TD
+></TR
+></TABLE
+><P
+>Tests if the directory entry <TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> is a file.</P
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> directory entry to be tested.</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+> no zero if it is a directory, zero in other case.</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN992"
+></A
+><H3
+><A
+NAME="COLE-DIR-GETNAME"
+></A
+>cole_dir_getname ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>char*       cole_dir_getname                (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1011"
+></A
+><H3
+><A
+NAME="COLE-DIR-GETSIZE"
+></A
+>cole_dir_getsize ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>size_t      cole_dir_getsize                (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1031"
+></A
+><H3
+><A
+NAME="COLE-DIR-GETSEC1"
+></A
+>cole_dir_getsec1 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>long        cole_dir_getsec1                (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1051"
+></A
+><H3
+><A
+NAME="COLE-DIR-GETSEC2"
+></A
+>cole_dir_getsec2 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>long        cole_dir_getsec2                (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1071"
+></A
+><H3
+><A
+NAME="COLE-DIR-GETDAYS1"
+></A
+>cole_dir_getdays1 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>long        cole_dir_getdays1               (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1091"
+></A
+><H3
+><A
+NAME="COLE-DIR-GETDAYS2"
+></A
+>cole_dir_getdays2 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>long        cole_dir_getdays2               (<A
+HREF="cole-api.html#COLEDIR"
+>COLEDIR</A
+> *coledir);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledir</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1111"
+></A
+><H3
+><A
+NAME="COLE-DIRENTRY-GETNAME"
+></A
+>cole_direntry_getname ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>char*       cole_direntry_getname           (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1130"
+></A
+><H3
+><A
+NAME="COLE-DIRENTRY-GETSIZE"
+></A
+>cole_direntry_getsize ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>size_t      cole_direntry_getsize           (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1150"
+></A
+><H3
+><A
+NAME="COLE-DIRENTRY-GETDAYS1"
+></A
+>cole_direntry_getdays1 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>long        cole_direntry_getdays1          (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1170"
+></A
+><H3
+><A
+NAME="COLE-DIRENTRY-GETSEC1"
+></A
+>cole_direntry_getsec1 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>long        cole_direntry_getsec1           (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1190"
+></A
+><H3
+><A
+NAME="COLE-DIRENTRY-GETDAYS2"
+></A
+>cole_direntry_getdays2 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>long        cole_direntry_getdays2          (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1210"
+></A
+><H3
+><A
+NAME="COLE-DIRENTRY-GETSEC2"
+></A
+>cole_direntry_getsec2 ()</H3
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>long        cole_direntry_getsec2           (<A
+HREF="cole-api.html#COLEDIRENT"
+>COLEDIRENT</A
+> *coledirentry);</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+><DIV
+CLASS="INFORMALTABLE"
+><P
+></P
+><TABLE
+BORDER="0"
+WIDTH="100%"
+CLASS="CALSTABLE"
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><TT
+CLASS="PARAMETER"
+><I
+>coledirentry</I
+></TT
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="20%"
+ALIGN="RIGHT"
+VALIGN="TOP"
+><I
+CLASS="EMPHASIS"
+>Returns</I
+> :</TD
+><TD
+WIDTH="80%"
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libcole.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="cole-internals.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>cole Library</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcole.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Internals</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

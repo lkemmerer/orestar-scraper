@@ -1,0 +1,20 @@
+convertXLS is a cgi-bin script that allows you to set up a file 
+conversion server. There are no restrictions on file size.
+
+To set it up on Apache:
+
+1) copy convertXLS.html to /home/httpd/html
+
+2) copy convertXLS.cgi to /home/httpd/cgi-bin
+
+3) Change to the cgi-bin directory in step 2 and open
+   the convertXLS.cgi file with an editor. Find line
+   388 and change the path to where you installed
+   xlhtml.
+   
+To Test:
+
+1) start Netscape and goto http://localhost/convertXLS.html
+
+2) Browse to xlhtml directory and chose Test.xls if you
+   don't have an Excel file.
