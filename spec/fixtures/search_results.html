@@ -1,0 +1,2831 @@
+
+
+
+  
+  
+  
+  
+  
+       
+  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Oregon Secretary Of State</title>
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="/orestar/css/calendar-win2k-1.css" rel="stylesheet" type="text/css"/>
+    <link href="/orestar/css/ajaxtags.css"         rel="stylesheet" type="text/css" />
+    <link href="/orestar/css/sos_subsystem.css"    rel="stylesheet" type="text/css"/>
+    <link href="/orestar/css/tabber.css"           rel="stylesheet" type="text/css"/>
+    <link href="/orestar/css/buttons.css"          rel="stylesheet" type="text/css"/>
+    <link href="/orestar/css/sdmenu.css"           rel="stylesheet" type="text/css" />
+     <script type="text/javascript">
+        // This line is required for help popup (overlib) to find the images
+        var OLbubbleImageDir='/orestar/images';
+    </script>
+ 
+    <script type="text/javascript" src="/orestar/js/prototype-1.4.0.js"></script>
+    <script type="text/javascript" src="/orestar/js/scriptaculous.js"></script>
+    <script type="text/javascript" src="/orestar/js/overlibmws.js"></script>
+    <script type="text/javascript" src="/orestar/js/overlibmws_bubble.js"></script>
+    <script type="text/javascript" src="/orestar/js/ajaxtags-1.2-beta2.js"></script>
+    <script type="text/javascript" src="/orestar/js/rico.js"></script>
+    <script type="text/javascript" src="/orestar/js/calendar.js"></script>
+    <script type="text/javascript" src="/orestar/js/calendar-en.js"></script>
+    <script type="text/javascript" src="/orestar/js/calendar-setup.js"></script>
+    <script type="text/javascript" src="/orestar/js/sdmenu.js">
+		/***********************************************
+		* Slashdot Menu script- By DimX
+		* Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+		* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+		***********************************************/
+    </script>
+    <script type="text/javascript">
+      function gup( name )
+      {
+          name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+          var regexS = "[\\?&]"+name+"=([^&#]*)";
+          var regex = new RegExp( regexS );
+          var results = regex.exec( window.location.href );
+          
+          if( results == null )
+          {
+              return "";
+          }
+          else
+          {
+              return results[1];
+          }
+      }
+      
+      // <![CDATA[
+      var myMenu;
+      var startup = gup( "startup" );
+//      alert( "startup: |" + startup + "|" );
+      
+      window.onload = function() 
+      {                
+//          alert( "entering onload function" );
+          
+          myMenu = new SDMenu("my_menu");
+          
+          try
+          {
+              myMenu.init();
+          }
+          catch( e )
+          {
+//              alert( "exception initializing menus..." + e );
+              ;
+          }
+          
+//          alert( "Checking Startup parameter" );
+          if ( startup == null || startup == "" )
+          {
+//                alert( "Not Startup" );
+              ;
+          }
+          else
+          {
+//                alert( "Startup" );
+              myMenu.collapseAll();
+              var firstSubmenu = myMenu.submenus[0];
+              myMenu.collapseMenu(firstSubmenu); 
+              myMenu.expandMenu(firstSubmenu); 
+          }
+          
+          myMenu.oneSmOnly = true;
+          myMenu.speed = 2;
+          myMenu.remember = true;
+          setStatus('Page initialized', 1500);
+      };
+      // ]]>
+    </script>
+    
+    <script type="text/javascript"> 
+        // This function is used to get the BGColor for submit button on Mouseover(Hover) as Hover doesn't support by IE6.0
+        function changeOnMouseOver(e){
+            var el=window.event? event.srcElement: e.target
+            if (el.tagName=="INPUT"&&(el.type=="button" || el.type=="submit" || el.type=="reset"))
+            el.style.backgroundColor='#273F6F'
+            el.style.color = '#FFF'
+        }
+        function changeOnMouseOut(e){
+            var el=window.event? event.srcElement: e.target
+            if (el.tagName=="INPUT"&&(el.type=="button" || el.type=="submit" || el.type=="reset"))
+            el.style.backgroundColor='#FFF'
+            el.style.color = '#273F6F'
+        }
+
+        // Tabber created by: Patrick Fitzgerald | http://www.barelyfitz.com
+        //document.write('<style type="text/css">.tabber{display:block;}<\/style>');
+    </script>
+    
+        <style type="text/css">
+        p {
+            padding-top: 30px;
+        }
+      </style>
+
+      <script type="text/javascript">
+        var anchor;
+        // This function scrolls the page to the anchor if 
+        // above variable is initialized in the page
+        function scrollDown() {
+            if(anchor) {
+                //alert(anchor);
+                location.hash = anchor;
+            }
+        }
+        function setStatus(s,n) {
+            // If the container exists, display the message
+            if($('statusContainer')) {
+                $('statusContainer').style.visibility = "visible";
+                $('statusMsg').innerHTML = s;
+                setTimeout( "$('statusContainer').style.visibility = 'hidden';", n );
+            }
+        }
+        
+         function setMsg() {
+           var s = "";
+           
+               var displayMsg = document.getElementById('msgContainer');
+               if(displayMsg && (s && s.length > 0)) {
+                    displayMsg.style.display = "block";
+                    document.getElementById('msg').innerHTML = s;
+                    //setTimeout( "$('statusContainer').style.visibility = 'hidden';", n );
+               }
+        }
+        
+        //----------------------------------------------------------------------------
+          function removeNonNumeric(s) {
+        //----------------------------------------------------------------------------
+            //alert("Welcome to removeNonNumeric");
+            //alert("s= " +s +" s.length= " +s.length);
+            var i;
+            var stringVal = "";
+     
+            for (i = 0; i < s.length; i++)
+            {   
+                // Check that current character is number.
+                var c = s.charAt(i);
+                //alert("c= " +c);
+            
+                if (c < "0") {
+                  continue;
+                }
+                if (c > "9") {
+                  continue;
+                }
+                stringVal = stringVal + c;
+                //alert("stringVal= " +stringVal);
+            }
+            // All characters are numbers.
+            //alert("stringVal = " +stringVal);
+            return stringVal;
+          }
+      
+        
+        //----------------------------------------------------------------------------
+          function validatePhone(textField) {
+        //----------------------------------------------------------------------------
+            var stringVal = "";
+      
+            //if the phone number is null or "", don't do anything
+            if ((textField.value==null)||(textField.value=="")) {
+              return true
+            }
+
+            //we need to do the best we can with what we have
+            //first, strip off any non numeric digits
+            textField.value = removeNonNumeric(textField.value);
+
+            //alert("after remove " +textField.value);
+            //alert("textField.value.length = " +textField.value.length);
+     
+            //now format what we have
+            //           012345678
+            //substring "hamburger".substring(4,8) returns "urge"
+            //       0123456789
+            //phone "1234567890"
+            //phone "(123)456-7890"
+            stringVal= "(";
+            stringVal = stringVal +textField.value.substring(0,3);
+            if (textField.value.length > 3) {
+              //we can put on the second parenthesis
+              stringVal = stringVal + ")";
+              stringVal = stringVal + textField.value.substring(3,6);
+            }
+            if (textField.value.length > 6) {
+              //we can put in the dash
+              stringVal = stringVal + "-";
+              stringVal = stringVal + textField.value.substring(6,10);
+            }
+            textField.value = stringVal;
+      
+            //ok for now.  back end validation will catch other errors
+            return true
+           }
+           function sosHome() {
+             var contextPath = "/orestar";
+             window.location=contextPath+"/orestarStart.do";
+           }
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function startTimer() {
+        setTimeout("startTimer()", 1000);
+        var x = $('elapsedTime');
+        if(x && x.value) {
+            x.value = parseInt(x.value) + 1;
+        }
+    }
+</script>
+
+<div class="tabbar">
+  <table width="100%" >
+    <tr align="right">
+      <td>&nbsp;</td>
+      
+    
+      <td align="center" width="10%"><a href="http://www.sos.state.or.us" target="_blank" class="tab" id="Home" >Home</a></td>
+                   
+      <td align="center" width="10%"><a href="http://www.sos.state.or.us/executive/index.html" target="_blank" class="tab" id="Executive" >Executive</a></td>
+                   
+      <td align="center" width="10%"><a href="http://arcweb.sos.state.or.us/" target="_blank" class="tab" id="Archives" >Archives</a></td>
+                   
+      <td align="center" width="10%"><a href="http://www.sos.state.or.us/audits/index.html" target="_blank" class="tab" id="Audits" >Audits</a></td>
+                   
+      <td align="center" width="10%"><a href="http://www.filinginoregon.com/index.htm" target="_blank" class="tab" id="Corporation" >Corporation</a></td>
+                   
+      <td align="center" width="10%"><a href="http://www.oregonvotes.org" target="_blank" class="tab" id="Elections" >Elections</a></td>
+                     
+    </tr>
+  </table>
+</div>
+
+<div id="header">
+    <div id="header_contact">
+        <table width="100%" >
+            <tr>
+                <td width="40%">
+                    &nbsp;
+                </td>
+                <td width="60%">
+                    <table width="100%">
+                        <tr>
+                            <td width="48%">
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                            </td>
+                            <td width="52%" align="left">
+                                <br/>Elections Division
+                                <br/>255 Capitol St NE, Ste 501, Salem, OR 97310
+                                <br/>503.986.1518 or 1.866.673.VOTE
+                                <br/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td align="left">
+                                <br/>
+                                
+                                    <b><font color="Yellow">              </font></b>
+                                
+                                
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td width="48%">
+                                <br/>
+                            </td>
+                            <td width="52%" align="left">                                
+                                <font size="2" style="align: right">
+                                    August 30, 2013&nbsp;&nbsp;&nbsp;(Version: v3.6.3.3)<br/>
+                                </font>
+                            </td>
+                        </tr>
+                    </table>
+                </td>        
+            </tr>
+        </table>
+    </div>  
+</div>
+
+      <table width="100%" border="0" >
+        <tr>        
+          <td width="20%">
+            <table width="100%" border="0" >
+              <tr>
+                <td>
+                  <br/>
+                  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="float: left" id="my_menu" class="sdmenu">
+  
+    
+  <div>
+    <span>Public Search</span>
+                   
+        <a id="Committees by Name" href="/orestar/GotoSearchByName.do" onclick='if (dolink != null) undoUnload();'>Committees by Name</a>
+     
+        <a id="Committees by Election" href="/orestar/GotoSearchByElection.do" onclick='if (dolink != null) undoUnload();'>Committees by Election</a>
+     
+        <a id="Committees by Measure/Petition" href="/orestar/GotoSearchByMnP.do" onclick='if (dolink != null) undoUnload();'>Committees by Measure/Petition</a>
+     
+        <a id="Campaign Finance Transactions" href="/orestar/gotoPublicTransactionSearch.do" onclick='if (dolink != null) undoUnload();'>Campaign Finance Transactions</a>
+     
+        <a id="Campaign Finance Certificates" href="/orestar/gotoPublicCertificateSearch.do" onclick='if (dolink != null) undoUnload();'>Campaign Finance Certificates</a>
+     
+        <a id="Candidate Filings" href="/orestar/CFSearchPage.do" onclick='if (dolink != null) undoUnload();'>Candidate Filings</a>
+          
+  </div>
+   
+    <a id="My Vote" href="/orestar/vr/showVoterSearch.do?lang=eng&amp;mode=sr" onclick='if (dolink != null) undoUnload();'>My Vote</a> 
+                     
+  <!-- *********************************End Menu****************************** -->
+</div>
+ 
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+<hr>
+<div style="float: left" id="my_menu" class="sdmenu">
+  
+    
+  <a id="Elections Home" href="http://www.oregonvotes.org/" target="_blank" >Elections Home</a>
+               
+  <a id="Elections History" href="http://www.oregonvotes.org/pages/history/index.html" target="_blank" >Elections History</a>
+               
+  <a id="Initiative, Referendum & Referral" href="http://www.oregonvotes.org/pages/irr/index.html" target="_blank" >Initiative, Referendum & Referral</a>
+               
+  <a id="Publications & Forms" href="http://www.oregonvotes.org/pages/publications/index.html" target="_blank" >Publications & Forms</a>
+                 
+  <!-- *********************************End Menu****************************** -->
+</div>
+ 
+
+                </td>
+              </tr>
+            </table>
+          </td>              
+          <td width="80%" style="border-left: solid black; border-width: thin;" >
+            <div id="content" >
+              
+              <div class="tilesBody" >
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+    .changed {background-color:yellow;}
+    .topMsgContainer {
+        display: inline;
+        background-color : #ffd363;
+        text-align:left;
+        font-weight:bold;
+    }
+    .msg {display: inline; text-align: left;}
+</style>
+
+<script type="text/javascript">
+
+            
+
+            function doPreviousPage(){    
+                //if (document.cneSearchForm.cneSearchPageIdx.value > 0) {
+                //        document.cneSearchForm.cneSearchPageIdx.value = Number(document.cneSearchForm.cneSearchPageIdx.value) - 1;
+                //}
+                // document.cneSearchForm.cneSearchButtonName.value="prev";   
+                window.location="/orestar/gotoPublicTransactionSearchResults.do?cneSearchButtonName=prev&cneSearchTranStartDate=08%2F29%2F2013&cneSearchContributorTxtSearchType=C&cneSearchFilerCommitteeTxtSearchType=C&cneSearchTranEndDate=08%2F30%2F2013&cneSearchPageIdx=0"
+                return true;
+          }
+          
+          
+            function doNextPage()
+            {    
+              //document.cneSearchForm.cneSearchPageIdx.value = Number(document.cneSearchForm.cneSearchPageIdx.value) + 1;
+              //document.cneSearchForm.cneSearchButtonName.value="next";    
+              window.location="/orestar/gotoPublicTransactionSearchResults.do?cneSearchButtonName=next&cneSearchTranStartDate=08%2F29%2F2013&cneSearchContributorTxtSearchType=C&cneSearchFilerCommitteeTxtSearchType=C&cneSearchTranEndDate=08%2F30%2F2013&cneSearchPageIdx=1"
+              return true;
+          }
+          
+          function resetSearch()
+          {
+            document.cneSearchForm.cneSearchButtonName.value="clear";
+            document.cneSearchForm.cneSearchPageIdx.value=0;
+            document.cneSearchForm.sort.value="desc";
+            document.cneSearchForm.by.value="RSN";
+            document.cneSearchForm.submit();
+          }
+
+          function doSearch()
+          {
+            document.cneSearchForm.cneSearchButtonName.value="search";
+            document.cneSearchForm.cneSearchPageIdx.value=0;
+            document.cneSearchForm.submit();
+          }
+          
+        function doNewSearch()
+          {
+            document.cneSearchForm.cneSearchButtonName.value="newSearch";
+            document.cneSearchForm.cneSearchPageIdx.value=0;
+            document.cneSearchForm.submit();
+            return true;
+          }
+
+   </script>
+<form name="cneSearchForm" method="get" action="/orestar/gotoPublicTransactionSearchResults.do">
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%">  
+  <tr>
+
+   <td class="pageheader">
+      <div id="header2"><h1>
+        Transaction Search Results
+        
+            <a href="javascript://nop/"  tabindex="-1"><img src="/orestar/images/help-icon.gif" class="definition" alt="transSearchResults" title=""/></a>
+        
+        
+      </h1></div>
+   
+    </td>
+  
+    
+   
+   
+        
+  </tr>
+    
+</table>
+
+  <input type="hidden" name="cneSearchButtonName" value="search">
+  <input type="hidden" name="cneSearchPageIdx" value="0">
+  <input type="hidden" name="sort" value="desc">
+  <input type="hidden" name="by" value="TRAN_DATE">
+  
+  
+  
+   
+  
+    
+  
+ 
+  
+  
+
+  <table cellspacing="2" cellpadding="3" border="0" width="100%">
+    <tr>
+      <td></td>
+      <td>
+        <input type="button" name="newSearch" value="New Search" onclick="javascript:doNewSearch()">
+      </td>
+      <td>
+        <a href="XcelCNESearch" target="_blank">Export To Excel Format</a>
+      </td>
+      <td align="right">
+
+        
+        
+          <input type="button" name="previous" value="Prev" disabled="disabled">
+        
+
+        
+          <input type="button" name="next" value="Next" onclick="javascript:doNextPage()">
+        
+        
+      </td>
+    </tr>
+    
+  </table>
+  <table cellspacing="2" cellpadding="3" border="0" width="100%">
+      <tr>
+        <td width="10%" align="right" nowrap="true">
+          <strong>Search Criteria : </strong>
+        </td>
+        <td width="36%">
+        Tran Start Date = 08/29/2013, Tran End Date = 08/30/2013, 
+
+
+
+        </td>
+        <td width="35%" align="left">
+            <font color="red">
+                **out-of-state contributor
+            </font>
+        </td>
+        <td> 
+            <a href="javascript://nop/"  onclick="javascript:openHlpWindow()">
+                <img src="/orestar/images/helpCenter.gif" align="middle">
+            </a>
+            </td>
+        </tr>
+        
+     <tr>
+        <td align="right" >
+          <strong>Results : </strong>
+        </td>
+        <td >
+             103 records found for the above search criteria       
+        </td>
+        <td align="right">
+            
+        </td>
+      </tr>
+    </table>
+  
+  <table  style="border-collapse: separate" border="0" cellpadding="0" cellspacing="1"
+         width="100%">
+    <tr class="shadedHeader">    
+
+    
+
+
+    <!-- =================================================================== -->
+    <!-- RSN                                                                 -->
+    <!-- =================================================================== -->
+     <th width="9%" style="text-align:center">
+        
+        
+          <a href="/orestar/gotoPublicTransactionSearchResults.do?cneSearchButtonName=sort&cneSearchPageIdx=0&cneSearchFilerCommitteeId=&cneSearchTranEndDate=08/30/2013&cneSearchButtonName=search&cneSearchContributorType=&employerState=&cneSearchContributorTxt=&cneSearchTranSubTypeName=&city=&addressLine1=&cneSearchTranAmountTo=&cneSearchTranStartDate=08/29/2013&cneSearchTranAmountFrom=&zip=&employerCity=&transactionId=&cneSearchTranFiledEndDate=&cneSearchFilerCommitteeTxt=&occupation=&cneSearchFilerCommitteeTxtSearchType=C&employer=&state=&cneSearchTranType=&cneSearchTranPurposeName=&cneSearchTranFiledStartDate=&cneSearchContributorTxtSearchType=C&zipPlusFour=&cneSearchContributorTypeName=&cneSearchTranTypeName=&sort=asc&by=RSN"><img src="/orestar/images/white-up.gif"></a>
+        
+        Tran ID
+     </th>
+
+
+    <!-- =================================================================== -->
+    <!-- TRAN DATE                                                           -->
+    <!-- =================================================================== -->
+      <th width="10%" style="text-align:center">
+        
+          
+          
+            <a href="/orestar/gotoPublicTransactionSearchResults.do?cneSearchButtonName=sort&cneSearchPageIdx=0&cneSearchFilerCommitteeId=&cneSearchTranEndDate=08/30/2013&cneSearchButtonName=search&cneSearchContributorType=&employerState=&cneSearchContributorTxt=&cneSearchTranSubTypeName=&city=&addressLine1=&cneSearchTranAmountTo=&cneSearchTranStartDate=08/29/2013&cneSearchTranAmountFrom=&zip=&employerCity=&transactionId=&cneSearchTranFiledEndDate=&cneSearchFilerCommitteeTxt=&occupation=&cneSearchFilerCommitteeTxtSearchType=C&employer=&state=&cneSearchTranType=&cneSearchTranPurposeName=&cneSearchTranFiledStartDate=&cneSearchContributorTxtSearchType=C&zipPlusFour=&cneSearchContributorTypeName=&cneSearchTranTypeName=&sort=asc&&by=TRAN_DATE"><img src="/orestar/images/green-down.gif"></a>
+          
+        
+        
+        Tran Date
+      </th>
+
+
+    <!-- =================================================================== -->
+    <!-- Tran Status                                                     -->
+    <!-- =================================================================== -->
+      <th width="8%" style="text-align:center">
+        <span style="text-align:left">
+        
+        
+          <a href="/orestar/gotoPublicTransactionSearchResults.do?cneSearchButtonName=sort&cneSearchPageIdx=0&cneSearchFilerCommitteeId=&cneSearchTranEndDate=08/30/2013&cneSearchButtonName=search&cneSearchContributorType=&employerState=&cneSearchContributorTxt=&cneSearchTranSubTypeName=&city=&addressLine1=&cneSearchTranAmountTo=&cneSearchTranStartDate=08/29/2013&cneSearchTranAmountFrom=&zip=&employerCity=&transactionId=&cneSearchTranFiledEndDate=&cneSearchFilerCommitteeTxt=&occupation=&cneSearchFilerCommitteeTxtSearchType=C&employer=&state=&cneSearchTranType=&cneSearchTranPurposeName=&cneSearchTranFiledStartDate=&cneSearchContributorTxtSearchType=C&zipPlusFour=&cneSearchContributorTypeName=&cneSearchTranTypeName=&sort=asc&by=STAT_DESCR"><img src="/orestar/images/white-up.gif"></a>
+        
+        Status
+        </span>
+      </th>
+
+
+    <!-- =================================================================== -->
+    <!-- FILER/COMMITTEE                                                     -->
+    <!-- =================================================================== -->
+      <th width="23%" style="text-align:center">
+        <span style="text-align:left">
+        
+        
+          <a href="/orestar/gotoPublicTransactionSearchResults.do?cneSearchButtonName=sort&cneSearchPageIdx=0&cneSearchFilerCommitteeId=&cneSearchTranEndDate=08/30/2013&cneSearchButtonName=search&cneSearchContributorType=&employerState=&cneSearchContributorTxt=&cneSearchTranSubTypeName=&city=&addressLine1=&cneSearchTranAmountTo=&cneSearchTranStartDate=08/29/2013&cneSearchTranAmountFrom=&zip=&employerCity=&transactionId=&cneSearchTranFiledEndDate=&cneSearchFilerCommitteeTxt=&occupation=&cneSearchFilerCommitteeTxtSearchType=C&employer=&state=&cneSearchTranType=&cneSearchTranPurposeName=&cneSearchTranFiledStartDate=&cneSearchContributorTxtSearchType=C&zipPlusFour=&cneSearchContributorTypeName=&cneSearchTranTypeName=&sort=asc&by=FILER"><img src="/orestar/images/white-up.gif"></a>
+        
+        Filer/Committee
+        </span>
+      </th>
+
+
+    <!-- =================================================================== -->
+    <!-- CONTRIBUTOR/PAYEE                                                   -->
+    <!-- =================================================================== -->
+      <th width="20%" style="text-align:center">
+        
+        
+          <a href="/orestar/gotoPublicTransactionSearchResults.do?cneSearchButtonName=sort&cneSearchPageIdx=0&cneSearchFilerCommitteeId=&cneSearchTranEndDate=08/30/2013&cneSearchButtonName=search&cneSearchContributorType=&employerState=&cneSearchContributorTxt=&cneSearchTranSubTypeName=&city=&addressLine1=&cneSearchTranAmountTo=&cneSearchTranStartDate=08/29/2013&cneSearchTranAmountFrom=&zip=&employerCity=&transactionId=&cneSearchTranFiledEndDate=&cneSearchFilerCommitteeTxt=&occupation=&cneSearchFilerCommitteeTxtSearchType=C&employer=&state=&cneSearchTranType=&cneSearchTranPurposeName=&cneSearchTranFiledStartDate=&cneSearchContributorTxtSearchType=C&zipPlusFour=&cneSearchContributorTypeName=&cneSearchTranTypeName=&sort=asc&by=NAME"><img src="/orestar/images/white-up.gif"></a>
+        
+        Contributor/Payee
+      </th>
+
+
+    <!-- =================================================================== -->
+    <!-- SUB TYPE                                                            -->
+    <!-- =================================================================== -->
+      <th width="20%" style="text-align:center">
+        
+        
+          <a href="/orestar/gotoPublicTransactionSearchResults.do?cneSearchButtonName=sort&cneSearchPageIdx=0&cneSearchFilerCommitteeId=&cneSearchTranEndDate=08/30/2013&cneSearchButtonName=search&cneSearchContributorType=&employerState=&cneSearchContributorTxt=&cneSearchTranSubTypeName=&city=&addressLine1=&cneSearchTranAmountTo=&cneSearchTranStartDate=08/29/2013&cneSearchTranAmountFrom=&zip=&employerCity=&transactionId=&cneSearchTranFiledEndDate=&cneSearchFilerCommitteeTxt=&occupation=&cneSearchFilerCommitteeTxtSearchType=C&employer=&state=&cneSearchTranType=&cneSearchTranPurposeName=&cneSearchTranFiledStartDate=&cneSearchContributorTxtSearchType=C&zipPlusFour=&cneSearchContributorTypeName=&cneSearchTranTypeName=&sort=asc&by=TRANSUBTYPE_DESCR"><img src="/orestar/images/white-up.gif"></a>
+        
+        Sub Type
+      </th>
+
+
+    <!-- =================================================================== -->
+    <!-- AMOUNT                                                              -->
+    <!-- =================================================================== -->
+      <th width="13%" style="text-align:center">
+        
+        
+          <a href="/orestar/gotoPublicTransactionSearchResults.do?cneSearchButtonName=sort&cneSearchPageIdx=0&cneSearchFilerCommitteeId=&cneSearchTranEndDate=08/30/2013&cneSearchButtonName=search&cneSearchContributorType=&employerState=&cneSearchContributorTxt=&cneSearchTranSubTypeName=&city=&addressLine1=&cneSearchTranAmountTo=&cneSearchTranStartDate=08/29/2013&cneSearchTranAmountFrom=&zip=&employerCity=&transactionId=&cneSearchTranFiledEndDate=&cneSearchFilerCommitteeTxt=&occupation=&cneSearchFilerCommitteeTxtSearchType=C&employer=&state=&cneSearchTranType=&cneSearchTranPurposeName=&cneSearchTranFiledStartDate=&cneSearchContributorTxtSearchType=C&zipPlusFour=&cneSearchContributorTypeName=&cneSearchTranTypeName=&?sort=asc&by=AMOUNT"><img src="/orestar/images/white-up.gif"></a>
+        
+        Amount
+      </th>
+
+
+    </tr>
+
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1544859'
+                    title="Click to display Transaction 1544859" >
+                    1544859
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=3604'
+              title="Click to display the committee details" >
+                Committee to Elect Dr. Alan Bates
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Nicholas R. Shults
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$1,267.54</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1544860'
+                    title="Click to display Transaction 1544860" >
+                    1544860
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=3604'
+              title="Click to display the committee details" >
+                Committee to Elect Dr. Alan Bates
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Payroll Specialties, Inc.
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$392.07</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545001'
+                    title="Click to display Transaction 1545001" >
+                    1545001
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=5446'
+              title="Click to display the committee details" >
+                Oregon Family Council Issues PAC
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Gateway Communications
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$750.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545002'
+                    title="Click to display Transaction 1545002" >
+                    1545002
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=5446'
+              title="Click to display the committee details" >
+                Oregon Family Council Issues PAC
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Arrow Sanitary Service
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$45.76</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545003'
+                    title="Click to display Transaction 1545003" >
+                    1545003
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=5446'
+              title="Click to display the committee details" >
+                Oregon Family Council Issues PAC
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Pacific Power
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$102.82</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545004'
+                    title="Click to display Transaction 1545004" >
+                    1545004
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=5446'
+              title="Click to display the committee details" >
+                Oregon Family Council Issues PAC
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Jack Louman
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$222.54</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545013'
+                    title="Click to display Transaction 1545013" >
+                    1545013
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=16115'
+              title="Click to display the committee details" >
+                Oregon 2014 Petition Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Miscellaneous Cash Contributions $100 and under 
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$50.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545022'
+                    title="Click to display Transaction 1545022" >
+                    1545022
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=142'
+              title="Click to display the committee details" >
+                Oregon Education Association - People for Improvement of Education
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Paul F. Zastrow
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$120.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545023'
+                    title="Click to display Transaction 1545023" >
+                    1545023
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=142'
+              title="Click to display the committee details" >
+                Oregon Education Association - People for Improvement of Education
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Lindell Johnson
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$120.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545024'
+                    title="Click to display Transaction 1545024" >
+                    1545024
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=142'
+              title="Click to display the committee details" >
+                Oregon Education Association - People for Improvement of Education
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Jerry Wilkins
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$120.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545025'
+                    title="Click to display Transaction 1545025" >
+                    1545025
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=142'
+              title="Click to display the committee details" >
+                Oregon Education Association - People for Improvement of Education
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Carol Swehla
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$120.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545026'
+                    title="Click to display Transaction 1545026" >
+                    1545026
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=142'
+              title="Click to display the committee details" >
+                Oregon Education Association - People for Improvement of Education
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Charlotte Rieder
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$120.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545030'
+                    title="Click to display Transaction 1545030" >
+                    1545030
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=142'
+              title="Click to display the committee details" >
+                Oregon Education Association - People for Improvement of Education
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              MARIE BASTA
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$120.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545037'
+                    title="Click to display Transaction 1545037" >
+                    1545037
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=142'
+              title="Click to display the committee details" >
+                Oregon Education Association - People for Improvement of Education
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Miscellaneous Cash Contributions $100 and under 
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$236.43</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545064'
+                    title="Click to display Transaction 1545064" >
+                    1545064
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=4846'
+              title="Click to display the committee details" >
+                Boone for State Representative
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Deborah Boone
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$863.27</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545080'
+                    title="Click to display Transaction 1545080" >
+                    1545080
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Theresa A Gibney
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$25.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545083'
+                    title="Click to display Transaction 1545083" >
+                    1545083
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Dan Rayfield
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$40.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545085'
+                    title="Click to display Transaction 1545085" >
+                    1545085
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Linda Paschke
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$10.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545086'
+                    title="Click to display Transaction 1545086" >
+                    1545086
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Biff Traber
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$30.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545087'
+                    title="Click to display Transaction 1545087" >
+                    1545087
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Janet Wolf-Eshe
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$25.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545090'
+                    title="Click to display Transaction 1545090" >
+                    1545090
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Rachel Ozretich
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$10.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545091'
+                    title="Click to display Transaction 1545091" >
+                    1545091
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Act Blue
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$7.75</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545098'
+                    title="Click to display Transaction 1545098" >
+                    1545098
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Century Link
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$39.53</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545099'
+                    title="Click to display Transaction 1545099" >
+                    1545099
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Pastega Coffee Service
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$177.75</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545100'
+                    title="Click to display Transaction 1545100" >
+                    1545100
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Corvallis Chamber of Commerce
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$250.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545101'
+                    title="Click to display Transaction 1545101" >
+                    1545101
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+            
+              <a href='/orestar/cneSearch.do?cneSearchButtonName=search&cneSearchFilerCommitteeRsn=1266&cneSearchFilerCommitteeTxt=&cneSearchFilerCommitteeTxtSearchType=C&cneSearchTranStartDate=&cneSearchTranEndDate=&cneSearchTranType=&cneSearchTranAmountFrom=&cneSearchTranAmountTo=&cneSearchContributorTxt=&cneSearchContributorTxtSearchType=C&cneSearchContributorType=&search=Search'>
+                                   
+                Linn County Democratic Central Committee (328)
+              </a>
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$563.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545102'
+                    title="Click to display Transaction 1545102" >
+                    1545102
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+            
+              <a href='/orestar/cneSearch.do?cneSearchButtonName=search&cneSearchFilerCommitteeRsn=1288&cneSearchFilerCommitteeTxt=&cneSearchFilerCommitteeTxtSearchType=C&cneSearchTranStartDate=&cneSearchTranEndDate=&cneSearchTranType=&cneSearchTranAmountFrom=&cneSearchTranAmountTo=&cneSearchContributorTxt=&cneSearchContributorTxtSearchType=C&cneSearchContributorType=&search=Search'>
+                                   
+                Democratic Party of Oregon (353)
+              </a>
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$10.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545105'
+                    title="Click to display Transaction 1545105" >
+                    1545105
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=291'
+              title="Click to display the committee details" >
+                Benton County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Miscellaneous Cash Contributions $100 and under 
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$55.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545110'
+                    title="Click to display Transaction 1545110" >
+                    1545110
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=13920'
+              title="Click to display the committee details" >
+                Kitzhaber 2010
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              DCH Advisors, Inc.
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$8,500.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545111'
+                    title="Click to display Transaction 1545111" >
+                    1545111
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=13920'
+              title="Click to display the committee details" >
+                Kitzhaber 2010
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              DCH Advisors, Inc.
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$327.80</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545113'
+                    title="Click to display Transaction 1545113" >
+                    1545113
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=13920'
+              title="Click to display the committee details" >
+                Kitzhaber 2010
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+            
+              <a href='/orestar/cneSearch.do?cneSearchButtonName=search&cneSearchFilerCommitteeRsn=1288&cneSearchFilerCommitteeTxt=&cneSearchFilerCommitteeTxtSearchType=C&cneSearchTranStartDate=&cneSearchTranEndDate=&cneSearchTranType=&cneSearchTranAmountFrom=&cneSearchTranAmountTo=&cneSearchContributorTxt=&cneSearchContributorTxtSearchType=C&cneSearchContributorType=&search=Search'>
+                                   
+                Democratic Party of Oregon (353)
+              </a>
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$240.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545114'
+                    title="Click to display Transaction 1545114" >
+                    1545114
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=13920'
+              title="Click to display the committee details" >
+                Kitzhaber 2010
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              C&amp;E Systems
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$666.14</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545116'
+                    title="Click to display Transaction 1545116" >
+                    1545116
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=4090'
+              title="Click to display the committee details" >
+                Friends of Jackie Dingfelder
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              C&amp;E Systems
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$55.46</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545117'
+                    title="Click to display Transaction 1545117" >
+                    1545117
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=4090'
+              title="Click to display the committee details" >
+                Friends of Jackie Dingfelder
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Jackie Dingfelder
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$100.79</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545133'
+                    title="Click to display Transaction 1545133" >
+                    1545133
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=16397'
+              title="Click to display the committee details" >
+                Citizens for West Linn Pool and Rec Center
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              C&amp;E Systems
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$222.50</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545137'
+                    title="Click to display Transaction 1545137" >
+                    1545137
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=931'
+              title="Click to display the committee details" >
+                Kate Brown Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Jillian Schoene
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$150.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545140'
+                    title="Click to display Transaction 1545140" >
+                    1545140
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=931'
+              title="Click to display the committee details" >
+                Kate Brown Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              C&amp;E Systems
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$100.92</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545141'
+                    title="Click to display Transaction 1545141" >
+                    1545141
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=12498'
+              title="Click to display the committee details" >
+                Friends of Jules
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              C&amp;E Systems
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$101.38</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545149'
+                    title="Click to display Transaction 1545149" >
+                    1545149
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=304'
+              title="Click to display the committee details" >
+                Deschutes County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+            
+              <a href='/orestar/cneSearch.do?cneSearchButtonName=search&cneSearchFilerCommitteeRsn=1288&cneSearchFilerCommitteeTxt=&cneSearchFilerCommitteeTxtSearchType=C&cneSearchTranStartDate=&cneSearchTranEndDate=&cneSearchTranType=&cneSearchTranAmountFrom=&cneSearchTranAmountTo=&cneSearchContributorTxt=&cneSearchContributorTxtSearchType=C&cneSearchContributorType=&search=Search'>
+                                   
+                Democratic Party of Oregon (353)
+              </a>
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$10.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545150'
+                    title="Click to display Transaction 1545150" >
+                    1545150
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=304'
+              title="Click to display the committee details" >
+                Deschutes County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              BendTel
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$25.85</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1545151'
+                    title="Click to display Transaction 1545151" >
+                    1545151
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/30/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=304'
+              title="Click to display the committee details" >
+                Deschutes County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Norton Street Storage, LLC
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$60.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1543947'
+                    title="Click to display Transaction 1543947" >
+                    1543947
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/29/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=108'
+              title="Click to display the committee details" >
+                NWOregon Labor Council, Comm on Pol Ed Dept
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Northwest Oregon Labor Council, AFL-CIO
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$685.26</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1543959'
+                    title="Click to display Transaction 1543959" >
+                    1543959
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/29/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=14575'
+              title="Click to display the committee details" >
+                ChiroPAC
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+            
+              <a href='/orestar/cneSearch.do?cneSearchButtonName=search&cneSearchFilerCommitteeRsn=1705&cneSearchFilerCommitteeTxt=&cneSearchFilerCommitteeTxtSearchType=C&cneSearchTranStartDate=&cneSearchTranEndDate=&cneSearchTranType=&cneSearchTranAmountFrom=&cneSearchTranAmountTo=&cneSearchContributorTxt=&cneSearchContributorTxtSearchType=C&cneSearchContributorType=&search=Search'>
+                                   
+                Friends of Tina Kotek (4792)
+              </a>
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$500.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1543977'
+                    title="Click to display Transaction 1543977" >
+                    1543977
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/29/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=11'
+              title="Click to display the committee details" >
+                Orloggers PAC
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              3 B&#39;s Forestry, Inc.
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$150.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1543978'
+                    title="Click to display Transaction 1543978" >
+                    1543978
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/29/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=11'
+              title="Click to display the committee details" >
+                Orloggers PAC
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Melsness Logging, Inc. 
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$150.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1544003'
+                    title="Click to display Transaction 1544003" >
+                    1544003
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/29/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=350'
+              title="Click to display the committee details" >
+                Yamhill County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              KATHY CAMPBELL
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$475.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1544005'
+                    title="Click to display Transaction 1544005" >
+                    1544005
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/29/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=350'
+              title="Click to display the committee details" >
+                Yamhill County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Online NW
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Expenditure</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$70.95</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1544017'
+                    title="Click to display Transaction 1544017" >
+                    1544017
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/29/2013</td>
+            <!-- display status of transaction -->
+            <td>Amended</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=350'
+              title="Click to display the committee details" >
+                Yamhill County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Frank Nelson
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$200.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="evenRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1544019'
+                    title="Click to display Transaction 1544019" >
+                    1544019
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/29/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=350'
+              title="Click to display the committee details" >
+                Yamhill County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              Miscellaneous Cash Contributions $100 and under 
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">Cash Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$10.00</td>
+        </tr>
+    
+      
+      
+      
+        <tr valign="middle" class="oddRow">
+            <!-- Display RSN -->
+            <td valign="middle" style="text-align:right">          
+               
+               
+                 <a href='/orestar/gotoPublicTransactionDetail.do?tranRsn=1544027'
+                    title="Click to display Transaction 1544027" >
+                    1544027
+                    <img src="/orestar/images/view.png" align="middle" alt="View Transaction" border="0">
+                </a>
+            </td>
+            <!-- display transaction date -->
+            <td>08/29/2013</td>
+            <!-- display status of transaction -->
+            <td>Original</td>
+            <!-- Display filter/comittee data -->
+            <td style="text-align:left">
+              <a href='/orestar/sooDetail.do?cneCommitteeId=350'
+              title="Click to display the committee details" >
+                Yamhill County Democratic Central Committee
+              </a>
+            </td>
+            <!-- display the contributor/payee -->
+          <td style="text-align:left">
+            
+              
+              David Hendrix
+              
+              
+            
+            
+          </td>
+          <!-- display the sub type -->
+          <td style="text-align:left">In-Kind Contribution</td>
+          <!-- display the contribution ammount -->
+          <td style="text-align:right">$193.00</td>
+        </tr>
+    
+    
+    
+  </table>
+
+  <table cellspacing="2" cellpadding="3" border="0" width="100%">
+    <tr>
+      <td></td>
+      <td>
+        <input type="button" name="newSearch" value="New Search" onclick="javascript:doNewSearch()">
+      </td>
+      <td><a href="XcelCNESearch" target="_blank">Export To Excel Format</a></td>
+      <td align="right">
+
+        
+        
+          <input type="button" name="previous" value="Prev" disabled="disabled">
+        
+
+        
+          <input type="button" name="next" value="Next" onclick="javascript:doNextPage()">
+        
+        
+      </td>
+    </tr>
+  </table>
+  
+</form>
+<br/>
+<br/>
+<br/>
+
+ 
+  
+ <script type="text/javascript">
+   function openHlpWindow() {
+     var link = 'http://www.oregonvotes.org/doc/searchtransactions.pdf';
+     window.open(link, "HelpWindow","status=1, scrollbars=1, resizable=1, left=640, top=20, width=500, height=500");
+   }
+ </script>
+
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      
+<div class="footer">
+  
+  <br/>
+  Copyright 2006-2013 Oregon Secretary of State. All Rights Reserved.
+  <br/>
+  <br/>
+</div>
+
+    </div>
+     <script type="text/javascript">
+new AjaxJspTag.Callout(
+"/orestar/ajaxdataserver/getHelpTextByCode", {
+overlib: "CLOSECLICK, DELAY, 50, TIMEOUT, 60000, BUBBLE, BUBBLETYPE, 'roundcorners', ADJBUBBLE, TEXTSIZE, '90%', OFFSETX, -245, NOFOLLOW",
+sourceClass: "definition",
+parameters: "code={ajaxParameter}"
+});
+</script>
+
+
+
+  </body>
+</html>
+
